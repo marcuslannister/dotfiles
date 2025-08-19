@@ -1,0 +1,36 @@
+[user]
+    name = marcuslannister
+    email = marcus@lannister.cc
+[credential]
+    helper = cache --timeout=3600
+[core]
+    pager = delta
+[merge]
+    tool = vimdiff
+[diff]
+    tool = "vimdiff"
+
+[push]
+    default = simple
+[pack]
+    threads = 1
+    deltaCacheSize = 1024m
+    windowMemory = 1024m
+[http]
+    # postBuffer = 524288000
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    required = true
+    process = git-lfs filter-process
+[tig "bind"]
+    generic = D !git difftool --tool=vimdiff --no-prompt --trust-exit-code %(commit)^!
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    side-by-side = true
+    line-numbers-left-format = ""
+    line-numbers-right-format = "│ "
+    syntax-theme = OneHalfLight
+[push]
+    followTags = true

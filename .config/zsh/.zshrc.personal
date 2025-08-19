@@ -1,0 +1,296 @@
+# key setting
+# bindkey "^P" up-line-or-search
+# bindkey "^N" down-line-or-search
+
+# Switch to vi mode
+setopt vi
+
+# unset the `EQUALS' option
+#unset EQUALS
+unsetopt EQUALS
+
+#k# search history backward for entry beginning with typed text
+#bind2maps emacs viins       -- -s '^p' history-beginning-search-backward-end
+
+export DOTFILES=$HOME/dotfiles
+
+# for genernal setting
+alias soz='source ~/.zshrc'
+alias vz='vim $DOTFILES/.zshrc'
+alias vzi='vim $DOTFILES/.zimrc'
+alias vze='vim $DOTFILES/.zshenv'
+alias vzl='vim $DOTFILES/.zlogin'
+alias vzp='vim $DOTFILES/.config/zsh/.zshrc.personal'
+alias vzw='vim $DOTFILES/.config/zsh/.zshrc.work'
+alias vzf='vim $DOTFILES/.config/zsh/.zshrc.fzf'
+alias vtp='vim $DOTFILES/.config/tmux/tmux.conf.personal'
+alias vtm='vim $DOTFILES/.tmux.conf'
+alias vit='vim install_tools.sh'
+alias svi='sudo vim'
+alias nv='nvim'
+alias nvd='nvim -d'
+alias nvi='neovide'
+
+# for zsh setting
+alias zcz='zcompile ~/.zshrc;zcompile ~/.zshenv;zcompile ~/.zlogin; \
+           zcompile ~/.config/zsh/.zshrc.personal; \
+           zcompile ~/.config/zsh/.zshrc.fzf;'
+
+# for gtags
+alias frg="find . -regex '.*\.c\|.*\.h\|.*\.cpp\|.*\.hpp\|.*\.java\|.*\.lua' >gtags.files"
+alias gfg="gtags -f gtags.files"
+alias rmgtags="rm GPATH GRTAGS GTAGS"
+
+# for git
+alias gdcc="git diff --cached --check --no-ext-diff"
+alias gcbf="git checkout bug_fix"
+alias gcbb="git checkout -b bug_fix"
+alias gchm="git checkout main"
+alias gcbd="git checkout -b dev"
+alias gchd="git checkout dev"
+alias gcom="git commit -m"
+alias gcnm="git commit -n -m"
+alias gdty="git difftool -y"
+alias gdtyc="git difftool -y --cached"
+alias gdt1="git difftool --depth=1"
+alias gssu="git status -s -uno"
+alias gcp="git cherry-pick"
+
+# for disk space
+alias dm='du -h --max-depth=1 | sort -hr'
+alias dam='du -a -h --max-depth=1 | sort -hr'
+
+# for skim
+alias skrg="sk --ansi -i -c 'rg --color=always --line-number "{}"'"
+alias vis='vi $(sk -m)'
+
+# for apt
+alias apt='sudo apt'
+alias apti='sudo apt install'
+
+# system with root
+alias ss='sudo service'
+alias ssl="sudo ss -lntup | awk '{print \$1, \$5, \$7}'"
+alias ssll='sudo ss -lntup | rg LISTEN'
+alias uf='sudo ufw'
+alias ssc='sudo systemctl'
+alias slt="sudo lsof -nP -iTCP -sTCP:LISTEN | awk '{print \$1, \$2, \$3, \$8, \$9}'"
+alias snl="sudo netstat -lntp | awk '{print \$1, \$4, \$7}'"
+
+# system without root
+alias rm='rm -i'
+alias rmr='rm -ir'
+alias mv='mv -i'
+alias mc='mount | column -t'
+alias mkdir='mkdir -p'
+alias ln='ln -sfn'
+alias cp='cp -av'
+
+## Display the top ten running processes - sorted by memory usage
+alias pstop='ps aux | sort -nk +4 | tail'
+
+## Kill mosh
+alias kmo="kill 'pidof mosh-server'"
+
+# trash-cli
+# trash-put           trash files and directories.
+# trash-empty         empty the trashcan(s).
+# trash-list          list trashed files.
+# trash-restore       restore a trashed file.
+# trash-rm            remove individual files from the trashcan.
+alias tp='trash-put'
+alias tl='trash-list'
+
+# pct
+alias pct='sudo pct'
+alias pcts='sudo pct start'
+alias pcte='sudo pct enter'
+
+# docker
+alias doc='sudo docker'
+alias docc='sudo docker-compose'
+alias doccd='sudo docker-compose down'
+alias doccdu='sudo docker-compose down;sudo docker-compose up -d'
+alias doccdpu='sudo docker-compose down;sudo docker-compose pull;sudo docker-compose up -d'
+alias vidocc='vi docker-compose.yml'
+alias doccpr='sudo docker-compose pull;sudo docker-compose up -d --remove-orphans'
+alias docip='sudo docker image prune'
+
+# network
+alias www2='python -m SimpleHTTPServer'
+alias swww2='sudo python -m SimpleHTTPServer'
+alias www='python3 -m http.server'
+alias swww='sudo python3 -m http.server'
+# alias sock5='ssh -D 8080 -q -C -N -f user@your.server'
+# alias sock5='ssh -D 8080 -qCN'
+
+# proxy
+# alias eppro='export https_proxy=http://127.0.0.1:7890/;export http_proxy=http://127.0.0.1:7890/'
+# alias eppro='export https_proxy=socks5://127.0.0.1:1100;export http_proxy=socks5://127.0.0.1:1100'
+# alias eppro='export https_proxy=http://pve-vm9:7890;export http_proxy=http://pve-vm9:7890'
+
+# tmux
+alias tnpro='tmux new -s production'
+alias tapro='tmux a -t production'
+alias tngost='tmux new -s gost'
+alias tagost='tmux a -t gost'
+
+# aliases
+# alias la='list_aliases'
+alias lag='list_aliases | grep'
+alias gita='git_aliases'
+alias gitag='git_aliases | grep'
+
+# tar
+alias tz='tar zxvf'
+
+# brew
+alias bs='brew search'
+alias bi='brew install --verbose --debug'
+alias bci='brew install --verbose --debug --cask '
+alias bu='brew upgrade'
+alias bcu='brew cask upgrade'
+
+# rsync
+alias rs='rsync -ah --progress'
+
+# diff and patch
+alias diq='diff -urq'
+alias pa='patch <'
+alias di='diff'
+
+# for ultralist
+alias u='ultralist'
+alias ul='ultralist list'
+alias ua='ultralist add'
+
+# for Taskwarrior
+alias t='task'
+alias tl='task list'
+alias ta='task add'
+
+# for bat
+alias bata='bat -A'
+alias batg='batgrep'
+alias batm='batman'
+alias batw='batwatch'
+alias batp='prettybat'
+
+# for eza
+alias e='eza'
+alias el='eza -l'
+alias et='eza -T'
+alias ea='eza -a'
+alias eta='eza -T -a'
+alias ela='eza -la -snew --icons'
+alias l='eza -l -snew --icons'
+alias ll="eza -l -g --icons"
+alias ls="eza --icons"
+alias la='eza -la -snew --icons'
+
+# for zim
+alias zf='zimfw'
+alias ar='archive'
+alias uar='unarchive'
+
+# for iptables
+alias it='sudo iptables'
+alias itl='sudo iptables -L'
+# alias itll='sudo iptables -L --line-numbers'
+alias itdi='sudo iptables -D INPUT'
+alias ittn='sudo iptables -t nat -L -n -v --line-numbers'
+alias ittm='sudo iptables -t mangle -L -n -v --line-numbers'
+alias itll='sudo iptables -L -n -v --line-numbers'
+alias bit='sudo bat /etc/iptables/rules.v4'
+
+# for ipset
+alias is='sudo ipset'
+
+# for nc
+alias ncu='nc -vuz'
+alias nct='nc -vz'
+alias ipa="hostname -I | awk '{print \$1}'"
+# alias nclf='echo "nc -q 0 $(ipa) 9012 <" ; nc -lv -p 9012 >'
+alias nclf='echo "nc $(ipa) 9012 <" ; nc -l 9012 >'
+
+# go
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:$HOME/.local/bin
+
+# git commit
+alias ncc='npx commitlint --from HEAD~1 --to HEAD --verbose'
+
+# 7za encrypt
+alias zipep='7za a -tzip -p -mem=AES256'
+alias zipe='7za a -tzip'
+
+# network
+alias cuipfm='curl ip.fm'
+
+# other
+alias wb='writebackup.sh'
+
+# croc
+alias crre='croc relay'
+alias cr='croc --relay "pve-vm16.lan:9009" send'
+
+# curl
+alias cuso='curl -so /dev/null'
+alias cuti='curl -so /dev/null -s -w '\''Connect Time:\t\t%{time_connect}\n'\'''
+
+# rg
+alias rgh='rg --hidden'
+alias rgni='rg --no-ignore'
+alias rghni='rg --hidden --no-ignore'
+alias rgg='rg -g'
+
+# fd
+alias fdh='fd --hidden'
+alias fdni='fd --no-ignore'
+alias fdhni='fd --hidden --no-ignore'
+
+# virsh
+alias vir='sudo virsh'
+alias virs='sudo virsh start'
+alias vird='sudo virsh shutdown'
+alias virc='sudo virsh console'
+alias virl='sudo virsh list'
+
+# youtube-dl
+# alias ydmp3='youtube-dl -x --embed-thumbnail --audio-format mp3 --audio-quality 0'
+alias ydmp3='yt-dlp -x --embed-thumbnail --audio-format mp3 --audio-quality 0'
+alias yd='yt-dlp --write-srt --sub-lang zh-TW --convert-subs srt --merge-output-format mp4'
+alias ydmp4='yt-dlp --write-srt --sub-lang zh-TW --convert-subs srt --merge-output-format mp4'
+
+# gdu
+alias godu='/usr/bin/gdu'
+
+# wget
+alias wo='wget -O'
+
+# kitty
+alias kd="kitty +kitten diff"
+alias vki="vi ~/.config/kitty/kitty.conf"
+alias nki="nv ~/.config/kitty/kitty.conf"
+alias kls="ls --hyperlink=auto"
+alias icat="kitten icat"
+# kitty transfer file from ssh
+alias ks="kitty +kitten ssh"
+alias kt="kitten transfer"
+alias ktu="kitten transfer --direction=upload"
+
+# ghostty
+alias vgh="vi ~/.config/ghostty/config"
+
+# ssh config
+alias vsc="vi ~/.ssh/config"
+
+# nix config
+alias drb="sudo -E darwin-rebuild build --flake ."
+alias drs="sudo -E darwin-rebuild switch --flake ."
+alias nrd="nix run github:serokell/deploy-rs -- -s"
+alias nfu="nix flake update"
+alias nfuh="nix flake update home-manager"
+alias nfun="nix flake update nix-darwin"
+alias nfud="nix flake update dotfiles"
+

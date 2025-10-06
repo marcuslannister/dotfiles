@@ -294,3 +294,14 @@ alias nfuh="nix flake update home-manager"
 alias nfun="nix flake update nix-darwin"
 alias nfud="nix flake update dotfiles"
 
+# jujutsu config
+alias js="jj st"
+alias jl="jj log"
+alias jd="jj diff"
+alias jbsm="jj bookmark set main --revision=@-"
+alias jgpm="jj git push --bookmark main"
+alias jgf="jj git fetch"
+alias jsp="jj split"
+alias jdm="jj describe -m"
+alias jn="jj new"
+

@@ -18,6 +18,7 @@ path=('/opt/homebrew/bin' $path)
 export PATH
 export HOMEBREW_NO_AUTO_UPDATE=1
 alias ls='gls'
+export EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs
 fi
 
 # pyenv

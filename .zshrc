@@ -6,8 +6,10 @@
 # Zsh configuration
 # -----------------
 
-if [[ $INSIDE_EMACS == 'vterm' ]]; then
-  source ~/.zlogin
+# zoxide
+if command -v zoxide >/dev/null 2>&1; then
+  export _ZL_DATA="$HOME/.local/share/z"
+  eval "$(zoxide init zsh)"
 fi
 
 #
@@ -169,5 +171,10 @@ fi
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/ken/.cache/lm-studio/bin"
+# End of LM Studio CLI section
+
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/ken/.lmstudio/bin"
 # End of LM Studio CLI section
 

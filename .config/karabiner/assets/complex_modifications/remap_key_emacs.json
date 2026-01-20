@@ -1,0 +1,57 @@
+{
+    "title": "Remap key on Emacs",
+    "rules": [
+        {
+            "description": "command to control",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "left_command"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_control"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": ["^org\\.gnu\\.Emacs$"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Shift+Backspace to Super+v: paste",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "delete_or_backspace",
+                        "modifiers": {
+                            "mandatory": [ "shift" ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "v",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": ["^org\\.gnu\\.Emacs$"]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+

@@ -1,0 +1,53 @@
+{
+  "title": "Remap key on simple chinese input method",
+  "rules": [{
+    "description": "Remap key on simple chinese input method",
+    "manipulators": [
+    {
+        "type": "basic",
+        "from": {
+            "key_code": "comma"
+        },
+        "to": [
+            {
+                "key_code": "open_bracket"
+            }
+        ],
+        "conditions": [
+        {
+            "type": "input_source_if",
+            "input_sources": [
+                {
+                    "input_source_id": "com.apple.inputmethod.SCIM.Shuangpin"
+                }
+            ]
+        }
+        ]
+    },
+        {
+        "type": "basic",
+        "from": {
+            "key_code": "period"
+        },
+        "to": [
+            {
+                "key_code": "close_bracket"
+            }
+        ],
+        "conditions": [
+        {
+            "type": "input_source_if",
+            "input_sources": [
+                {
+                    "input_source_id": "com.apple.inputmethod.SCIM.Shuangpin"
+                }
+            ]
+        }
+        ]
+        }
+]
+}
+]
+}
+
+

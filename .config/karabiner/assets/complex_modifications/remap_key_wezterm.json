@@ -1,0 +1,28 @@
+{
+  "title": "Remap key on wezterm",
+  "rules": [{
+    "description": "Remap key on wezterm",
+    "manipulators": [
+    {
+        "type": "basic",
+        "from": {
+            "key_code": "left_command"
+        },
+        "to": [
+            {
+                "key_code": "left_control"
+            }
+        ],
+        "conditions": [
+        {
+            "type": "frontmost_application_if",
+            "bundle_identifiers": ["^com\\.github\\.wez\\.wezterm$"]
+        }
+        ]
+    }
+]
+}
+]
+}
+
+

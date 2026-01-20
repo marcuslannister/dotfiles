@@ -1,0 +1,29 @@
+{
+  "title": "Double command to enter keys",
+  "rules": [
+        {
+            "description": "Double left_command to enter keys",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "simultaneous": [
+                            {
+                                "key_code": "left_command"
+                            },
+                            {
+                                "key_code": "left_alt"
+                            }
+                        ]
+                    },
+                    "to": [
+                        {
+                            "key_code": "return_or_enter"
+                        }
+                    ]
+                }
+
+            ]
+        }
+  ]
+}

@@ -305,3 +305,6 @@ alias jsp="jj split"
 alias jdm="jj describe -m"
 alias jn="jj new"
 
+# zellij
+
+alias ze="zellij"

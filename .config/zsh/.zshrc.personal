@@ -306,5 +306,8 @@ alias jdm="jj describe -m"
 alias jn="jj new"
 
 # zellij
-
 alias ze="zellij"
+
+# emacs
+alias em="$EMACSC -n"
+

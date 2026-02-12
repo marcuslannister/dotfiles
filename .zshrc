@@ -173,8 +173,12 @@ fi
 export PATH="$PATH:/Users/ken/.cache/lm-studio/bin"
 # End of LM Studio CLI section
 
-
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/ken/.lmstudio/bin"
 # End of LM Studio CLI section
+
+export PATH="$PATH:/Users/ken/.cargo/bin"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
 

@@ -153,6 +153,7 @@ zle -N zle-keymap-select
 export USR_HOME=$HOME
 source $HOME/.config/zsh/.zshrc.personal
 source $HOME/.config/zsh/.zshrc.fzf
+source $HOME/.config/zsh/.zshrc.customize
 # source $HOME/.config/zsh/.zshrc.work
 
 # PURE_PROMPT_SYMBOL='>>'

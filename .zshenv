@@ -22,6 +22,14 @@ export EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs
 export EMACSC=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
 fi
 
+# Linux settings
+if [ "$OS" = 'Linux' ]; then
+  # Ensure Nix is available for non-interactive shells (deploy-rs, ssh, etc.)
+  if [ -d /nix/var/nix/profiles/default/bin ]; then
+    path=(/nix/var/nix/profiles/default/bin $path)
+  fi
+fi
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$HOME/.emacs.d/bin:$PYENV_ROOT/bin:$HOME/local/bin:$PATH"

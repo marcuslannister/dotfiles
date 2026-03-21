@@ -19,6 +19,8 @@ case $1 in
         server=192.168.8.11;;
     12 )
         server=192.168.8.12;;
+    17 )
+        server=192.168.8.17;;
 esac
 
 dns_server=$server

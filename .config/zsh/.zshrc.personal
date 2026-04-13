@@ -311,3 +311,7 @@ alias ze="zellij"
 # emacs
 alias em="$EMACSC -n"
 
+# Coding Agent
+alias cc="claude"
+alias ccc="claude --continue"
+alias co="codex"

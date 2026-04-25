@@ -20,6 +20,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 alias ls='gls'
 export EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs
 export EMACSC=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+export emacsclient=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
 fi
 
 # Linux settings

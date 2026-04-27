@@ -14,7 +14,14 @@ case "$OSTYPE" in
 esac
 
 if [ "$OS" = 'Mac' ]; then
-path=('/opt/homebrew/bin' $path)
+
+typeset -U path PATH
+    path=(
+      /opt/homebrew/opt/coreutils/libexec/gnubin
+      /Applications/Emacs.app/Contents/MacOS/bin
+      /opt/homebrew/bin
+      $path
+    )
 export PATH
 export HOMEBREW_NO_AUTO_UPDATE=1
 alias ls='gls'

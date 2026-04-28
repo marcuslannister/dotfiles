@@ -19,7 +19,7 @@ typeset -U path PATH
     path=(
       /opt/homebrew/opt/coreutils/libexec/gnubin
       /Applications/Emacs.app/Contents/MacOS/bin
-      /Applications/Emacs.app/Contents/MacOS/Emacs
+      /Applications/Emacs.app/Contents/MacOS
       /opt/homebrew/bin
       $path
     )

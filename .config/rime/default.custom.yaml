@@ -1,0 +1,22 @@
+# 以 patch: 开头，后面的内容都需要缩进
+
+patch:
+  # 菜单
+  schema_list:
+    # 可以直接删除或注释不需要的方案，对应的 *.schema.yaml 方案文件也可以直接删除
+    # 除了 t9，它依赖于 rime_ice，用九宫格别删 rime_ice.schema.yaml
+    - schema: rime_ice               # 雾凇拼音（全拼）
+    - schema: double_pinyin_flypy    # 小鹤双拼
+
+  key_binder/bindings:
+    - {accept: Escape, toggle: ascii_mode, when: always}
+    - {accept: "Control+Command+bracketleft", toggle: ascii_mode, when: always}
+    - {accept: "Control+bracketleft", toggle: ascii_mode, when: always}
+    - {accept: "Command+bracketleft", toggle: ascii_mode, when: always}
+    - {accept: "Command+i", toggle: ascii_mode, when: always}
+    # - {accept: "Control+bracketleft", toggle: ascii_mode, when: composing}
+    # - {accept: "Control+bracketleft", toggle: ascii_mode, when: has_menu}
+
+
+  # alternative_select_labels: [ ①, ②, ③, ④, ⑤, ⑥, ⑦, ⑧, ⑨, ⑩ ]  # 修改候选项标签
+  # alternative_select_keys: ASDFGHJKL  # 如编码字符占用数字键，则需另设选字键

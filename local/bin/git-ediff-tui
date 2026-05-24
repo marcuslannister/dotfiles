@@ -1,0 +1,10 @@
+#!/bin/sh
+export GIT_EDIFF_LOCAL=$1
+export GIT_EDIFF_REMOTE=$2
+
+exec emacs -nw --eval '(progn
+  (setq ediff-window-setup-function (quote ediff-setup-windows-plain)
+        ediff-split-window-function (quote split-window-horizontally))
+  (add-hook (quote ediff-quit-hook) (lambda () (kill-emacs)))
+  (ediff-files (getenv "GIT_EDIFF_LOCAL")
+               (getenv "GIT_EDIFF_REMOTE")))'

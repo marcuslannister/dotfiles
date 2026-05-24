@@ -8,8 +8,7 @@
 [merge]
     tool = vimdiff
 [diff]
-    tool = "vimdiff"
-
+    tool = ediff-tui
 [push]
     default = simple
 [pack]
@@ -24,7 +23,7 @@
     required = true
     process = git-lfs filter-process
 [tig "bind"]
-    generic = D !git difftool --tool=vimdiff --no-prompt --trust-exit-code %(commit)^!
+    generic = D !git difftool --tool=ediff-tui --no-prompt --trust-exit-code %(commit)^!
 [interactive]
     diffFilter = delta --color-only
 [delta]
@@ -34,3 +33,6 @@
     syntax-theme = OneHalfLight
 [push]
     followTags = true
+[difftool "ediff-tui"]
+    cmd = git-ediff-tui \"$LOCAL\" \"$REMOTE\"
+    trustExitCode = true

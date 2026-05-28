@@ -326,7 +326,8 @@ alias npsu="npx skills update -g -y"
 # here and use a simple synchronous two-line prompt instead.
 if [[ "${INSIDE_EMACS%%,*}" = 'ghostel' ]]; then
     # OSC 7 (cwd) + OSC 133 (prompt boundaries) for ghostel features.
-    source /Users/ken/.emacs.d/elpa-31.0/ghostel-20260510.1644/etc/shell/ghostel.zsh
+    # Path is exported by Emacs (see init-local-shell.el).
+    [[ -r "$GHOSTEL_SH_INTEGRATION" ]] && source "$GHOSTEL_SH_INTEGRATION"
 
     # Strip Pure's hooks so it stops re-rendering PROMPT each cycle.
     autoload -Uz add-zsh-hook

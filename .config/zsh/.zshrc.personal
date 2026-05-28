@@ -319,3 +319,26 @@ alias co="codex"
 
 # nodejs
 alias npsu="npx skills update -g -y"
+
+# --- ghostel buffers only ---
+# Pure's zle reset-prompt redraws don't compose well with libghostty's
+# emulation inside Emacs (the preprompt line duplicates). Disable Pure
+# here and use a simple synchronous two-line prompt instead.
+if [[ "${INSIDE_EMACS%%,*}" = 'ghostel' ]]; then
+    # OSC 7 (cwd) + OSC 133 (prompt boundaries) for ghostel features.
+    source /Users/ken/.emacs.d/elpa-31.0/ghostel-20260510.1644/etc/shell/ghostel.zsh
+
+    # Strip Pure's hooks so it stops re-rendering PROMPT each cycle.
+    autoload -Uz add-zsh-hook
+    add-zsh-hook -d precmd prompt_pure_precmd 2>/dev/null
+    add-zsh-hook -d preexec prompt_pure_preexec 2>/dev/null
+
+    # Synchronous prompt: cwd + git branch on line 1, arrow on line 2.
+    autoload -Uz vcs_info
+    add-zsh-hook precmd vcs_info
+    setopt prompt_subst
+    zstyle ':vcs_info:git:*' formats ' %F{cyan}%b%f'
+    zstyle ':vcs_info:*' enable git
+    PROMPT='%F{blue}%~%f${vcs_info_msg_0_}
+%F{magenta}❯%f '
+fi

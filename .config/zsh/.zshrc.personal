@@ -316,6 +316,12 @@ alias em="emacs -nw"
 alias cc="claude"
 alias ccc="claude --continue"
 alias ccd="claude --dangerously-skip-permissions"
+alias ccdc="claude --dangerously-skip-permissions --continue"
+
+alias cg="ccglass"
+alias cgd="ccglass claude --dangerously-skip-permissions"
+alias cgdc="ccglass claude --dangerously-skip-permissions --continue"
+
 alias co="codex"
 alias co="codex resume"
 alias cod="codex --dangerously-bypass-approvals-and-sandbox"

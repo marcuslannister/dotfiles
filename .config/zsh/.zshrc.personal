@@ -308,6 +308,13 @@ alias jn="jj new"
 # zellij
 alias ze="zellij"
 
+# nuke every zellij session + orphan server (kill-all-sessions misses headless servers)
+ze-nuke() {
+  pkill -9 -f 'zellij --server'
+  zellij delete-all-sessions -y 2>/dev/null
+  echo "zellij: clean slate"
+}
+
 # emacs
 alias emg="$EMACSC -n"
 alias em="emacs -nw"

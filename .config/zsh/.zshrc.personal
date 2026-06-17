@@ -359,3 +359,6 @@ if [[ "${INSIDE_EMACS%%,*}" = 'ghostel' ]]; then
     PROMPT='%F{blue}%~%f${vcs_info_msg_0_}
 %F{magenta}❯%f '
 fi
+
+# repo-check: sweep repos for uncommitted + unpushed changes
+alias repo-check="$HOME/dotfiles/local/bin/repo-check"

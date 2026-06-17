@@ -186,3 +186,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+
+# repo-check: sweep repos for uncommitted + unpushed changes
+alias repo-check="$HOME/dotfiles/local/bin/repo-check"

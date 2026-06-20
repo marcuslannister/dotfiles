@@ -330,8 +330,8 @@ alias cgd="ccglass claude --dangerously-skip-permissions"
 alias cgdc="ccglass claude --dangerously-skip-permissions --continue"
 
 alias co="codex"
-alias co="codex resume"
-alias cod="codex --dangerously-bypass-approvals-and-sandbox"
+alias coc="codex resume --last"
+alias codc="codex resume --last --dangerously-bypass-approvals-and-sandbox"
 
 # nodejs
 alias npsu="npx skills update -g -y"

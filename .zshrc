@@ -189,16 +189,25 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # [[ ":$PATH:" != *":$HOME/.config/kaku/zsh/bin:"* ]] && export PATH="$HOME/.config/kaku/zsh/bin:$PATH" # Kaku PATH Integration
 # [[ -f "$HOME/.config/kaku/zsh/kaku.zsh" ]] && source "$HOME/.config/kaku/zsh/kaku.zsh" # Kaku Shell Integration
 
+# Otty appends its managed block below this code. Wrap its dump hook on the
+# first prompt, after the function exists but before Otty invokes it.
+__otty_prepare_dump_aliases() {
+  if (( ${+functions[__otty_dump_aliases]} &&
+        ! ${+functions[__otty_dump_aliases_upstream]} )); then
+    functions -c __otty_dump_aliases __otty_dump_aliases_upstream
+    __otty_dump_aliases() {
+      setopt localoptions clobber
+      __otty_dump_aliases_upstream "$@"
+    }
+  fi
+  precmd_functions=("${(@)precmd_functions:#__otty_prepare_dump_aliases}")
+}
+precmd_functions+=(__otty_prepare_dump_aliases)
+
 # >>> otty shell integration >>>
 # Added by Otty — toggle in Settings > Shell > Shell Integration.
 # Inert unless launched by Otty (it sets $OTTY_SHELL_INTEGRATION).
 if [ -n "$OTTY_SHELL_INTEGRATION" ] && [ -r "$OTTY_SHELL_INTEGRATION/otty-integration.zsh" ]; then
   . "$OTTY_SHELL_INTEGRATION/otty-integration.zsh"
-  # Otty overwrites stable temp files; scope around Zim's NO_CLOBBER.
-  functions -c __otty_dump_aliases __otty_dump_aliases_upstream
-  __otty_dump_aliases() {
-    setopt localoptions clobber
-    __otty_dump_aliases_upstream "$@"
-  }
 fi
 # <<< otty shell integration <<<

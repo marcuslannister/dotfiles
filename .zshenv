@@ -42,6 +42,7 @@ fi
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$HOME/.emacs.d/bin:$PYENV_ROOT/bin:$HOME/local/bin:$PATH"
+path+=("$HOME/Projects/agent-scripts/scripts")
 
 # lc type
 export LC_CTYPE=en_US.UTF-8

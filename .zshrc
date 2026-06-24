@@ -194,5 +194,11 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # Inert unless launched by Otty (it sets $OTTY_SHELL_INTEGRATION).
 if [ -n "$OTTY_SHELL_INTEGRATION" ] && [ -r "$OTTY_SHELL_INTEGRATION/otty-integration.zsh" ]; then
   . "$OTTY_SHELL_INTEGRATION/otty-integration.zsh"
+  # Otty overwrites stable temp files; scope around Zim's NO_CLOBBER.
+  functions -c __otty_dump_aliases __otty_dump_aliases_upstream
+  __otty_dump_aliases() {
+    setopt localoptions clobber
+    __otty_dump_aliases_upstream "$@"
+  }
 fi
 # <<< otty shell integration <<<

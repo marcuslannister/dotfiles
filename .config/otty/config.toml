@@ -25,13 +25,8 @@ palette-15 = "#ebebe6"
 
 # privilege-notification-on-finish = true (reset to default)
 
-# Use Option as Alt for both keys
-# macos-option-as-alt = true
-
 copy-on-select = true
-
 clipboard-trim-trailing-spaces = true
-
 editor-visible-whitespace = true
 
 # selection-background = "#edc4be" (reset to default)
@@ -45,3 +40,6 @@ editor-visible-whitespace = true
 # font-family-italic = "MonoLisa Nerd Font Italic"
 # font-family-bold-italic = "MonoLisa Nerd Font Bold Italic"
 font-size = 16
+
+macos-option-as-alt = true
+privilege-sound-on-error = true

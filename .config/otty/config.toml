@@ -43,3 +43,5 @@ font-size = 16
 
 macos-option-as-alt = true
 privilege-sound-on-error = true
+
+font-family = "MonoLisa Nerd Font"

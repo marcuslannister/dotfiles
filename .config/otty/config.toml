@@ -25,7 +25,7 @@ palette-15 = "#ebebe6"
 
 # privilege-notification-on-finish = true (reset to default)
 
-copy-on-select = true
+# copy-on-select = true (reset to default)
 clipboard-trim-trailing-spaces = true
 editor-visible-whitespace = true
 
@@ -45,3 +45,17 @@ macos-option-as-alt = true
 privilege-sound-on-error = true
 
 font-family = "MonoLisa Nerd Font"
+
+cursor-style = "bar"
+
+keybind = "opt+1=goto_tab:1"
+keybind = "opt+2=goto_tab:2"
+keybind = "opt+3=goto_tab:3"
+keybind = "opt+4=goto_tab:4"
+keybind = "opt+5=goto_tab:5"
+keybind = "opt+6=goto_tab:6"
+keybind = "ctrl+v=paste"
+
+
+font-blending = "macos-like"
+# font-thicken = true   # uncomment if strokes still look too thin vs kitty

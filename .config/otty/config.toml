@@ -59,3 +59,5 @@ keybind = "ctrl+v=paste"
 
 font-blending = "macos-like"
 # font-thicken = true   # uncomment if strokes still look too thin vs kitty
+
+copy-on-select = true

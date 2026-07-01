@@ -13,6 +13,8 @@ palette = [
     "#8C8A80", "#C36A6A", "#6B9A78", "#C88A50",
     "#7A9AAA", "#8A7A9A", "#6ABAAA", "#EBEBE6",
 ]
+# otty-added: terminal.cursor
+cursor = "#a33a3a"
 
 [token]
 foreground = "#1A1A1A"

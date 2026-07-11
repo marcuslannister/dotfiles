@@ -331,6 +331,7 @@ alias cgdc="ccglass claude --dangerously-skip-permissions --continue"
 
 alias co="codex"
 alias coc="codex resume --last"
+alias cod="codex --dangerously-bypass-approvals-and-sandbox"
 alias codc="codex resume --last --dangerously-bypass-approvals-and-sandbox"
 
 # nodejs

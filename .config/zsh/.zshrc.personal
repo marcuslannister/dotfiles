@@ -320,19 +320,27 @@ alias emg="$EMACSC -n"
 alias em="emacs -nw"
 
 # Coding Agent
-alias cc="onecli run -- claude"
+alias cc="claude"
 alias ccc="cc --continue"
 alias ccd="cc --dangerously-skip-permissions"
 alias ccdc="cc --dangerously-skip-permissions --continue"
+
+alias occ="onecli run --agent default -- claude"
+alias occd="occ --dangerously-skip-permissions"
+alias occdc="occ --dangerously-skip-permissions --continue"
 
 alias cg="ccglass"
 alias cgd="ccglass claude --dangerously-skip-permissions"
 alias cgdc="ccglass claude --dangerously-skip-permissions --continue"
 
-alias co="onecli run -- codex"
+alias co="codex"
 alias coc="co resume --last"
 alias cod="co --dangerously-bypass-approvals-and-sandbox"
 alias codc="co resume --last --dangerously-bypass-approvals-and-sandbox"
+
+alias oco="onecli run --agent default -- codex"
+alias cod="oco --dangerously-bypass-approvals-and-sandbox"
+alias codc="oco resume --last --dangerously-bypass-approvals-and-sandbox"
 
 # nodejs
 alias npsu="npx skills update -g -y"

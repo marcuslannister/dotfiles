@@ -339,8 +339,8 @@ alias cod="co --dangerously-bypass-approvals-and-sandbox"
 alias codc="co resume --last --dangerously-bypass-approvals-and-sandbox"
 
 alias oco="onecli run --agent default -- codex"
-alias cod="oco --dangerously-bypass-approvals-and-sandbox"
-alias codc="oco resume --last --dangerously-bypass-approvals-and-sandbox"
+alias ood="oco --dangerously-bypass-approvals-and-sandbox"
+alias oodc="oco resume --last --dangerously-bypass-approvals-and-sandbox"
 
 # nodejs
 alias npsu="npx skills update -g -y"

@@ -9,3 +9,17 @@
 
 - `local/bin/` holds personal scripts (synced to `~/.local/bin` on rebuild).
 - `repo-check` — sweep repos for uncommitted + unpushed changes (default list at top of script; override via args). Aliased as `repo-check` in `.zshrc`.
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in this repo's GitHub Issues. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default triage label vocabulary. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context layout. See `docs/agents/domain.md`.

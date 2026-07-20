@@ -1,21 +1,41 @@
 diff --git a/src/bin/zjstatus.rs b/src/bin/zjstatus.rs
-index f9d95c7..5b62151 100644
+index f9d95c7..f5fefda 100644
 --- a/src/bin/zjstatus.rs
 +++ b/src/bin/zjstatus.rs
-@@ -186,6 +186,22 @@ impl ZellijPlugin for State {
+@@ -186,6 +186,42 @@ impl ZellijPlugin for State {
  }
- 
+
  impl State {
 +    fn refresh_focused_pane(&mut self) -> bool {
-+        let Ok((tab_position, pane_id)) = get_focused_pane_info() else {
++        let Some(tab_position) = self
++            .state
++            .tabs
++            .iter()
++            .find(|tab| tab.active)
++            .map(|tab| tab.position)
++        else {
++            return false;
++        };
++        let Some(pane_id) = self
++            .state
++            .panes
++            .panes
++            .get(&tab_position)
++            .and_then(|panes| panes.iter().find(|pane| pane.is_focused && !pane.is_plugin))
++            .map(|pane| PaneId::Terminal(pane.id))
++        else {
 +            return false;
 +        };
 +        let Some(pane_info) = get_pane_info(pane_id) else {
 +            return false;
 +        };
 +
-+        let changed =
-+            refresh_cached_focused_pane(&mut self.state.panes, tab_position, pane_id, pane_info);
++        let changed = refresh_cached_focused_pane_title(
++            &mut self.state.panes,
++            tab_position,
++            pane_id,
++            &pane_info.title,
++        );
 +        if changed {
 +            self.update_focused_pane();
 +        }
@@ -24,8 +44,8 @@ index f9d95c7..5b62151 100644
 +
      fn update_focused_pane(&mut self) {
          let active_tab = self.state.tabs.iter().find(|t| t.active);
- 
-@@ -378,7 +394,11 @@ impl State {
+
+@@ -378,7 +414,11 @@ impl State {
              Event::Timer(_) => {
                  tracing::Span::current().record("event_type", "Event::Timer");
                  set_timeout(REFRESH_INTERVAL_SECONDS);
@@ -35,62 +55,49 @@ index f9d95c7..5b62151 100644
 +                } else {
 +                    0
 +                };
- 
+
                  should_render = true;
              }
-@@ -388,6 +408,46 @@ impl State {
+@@ -388,6 +428,33 @@ impl State {
      }
  }
- 
-+fn refresh_cached_focused_pane(
+
++fn refresh_cached_focused_pane_title(
 +    panes: &mut PaneManifest,
 +    tab_position: usize,
 +    pane_id: PaneId,
-+    mut current_pane: PaneInfo,
++    current_title: &str,
 +) -> bool {
-+    let panes_for_tab = panes.panes.entry(tab_position).or_default();
-+    let mut changed = false;
-+    let mut found = false;
++    let Some(cached_pane) = panes.panes.get_mut(&tab_position).and_then(|panes| {
++        panes.iter_mut().find(|cached_pane| {
++            let cached_id = if cached_pane.is_plugin {
++                PaneId::Plugin(cached_pane.id)
++            } else {
++                PaneId::Terminal(cached_pane.id)
++            };
++            cached_id == pane_id
++        })
++    }) else {
++        return false;
++    };
 +
-+    for cached_pane in panes_for_tab.iter_mut() {
-+        let cached_id = if cached_pane.is_plugin {
-+            PaneId::Plugin(cached_pane.id)
-+        } else {
-+            PaneId::Terminal(cached_pane.id)
-+        };
-+        let is_current = cached_id == pane_id;
-+
-+        if cached_pane.is_focused != is_current {
-+            cached_pane.is_focused = is_current;
-+            changed = true;
-+        }
-+        if is_current {
-+            found = true;
-+            if cached_pane.title != current_pane.title {
-+                cached_pane.title.clone_from(&current_pane.title);
-+                changed = true;
-+            }
-+        }
++    if cached_pane.title == current_title {
++        false
++    } else {
++        cached_pane.title = current_title.to_owned();
++        true
 +    }
-+
-+    if !found {
-+        current_pane.is_focused = true;
-+        panes_for_tab.push(current_pane);
-+        changed = true;
-+    }
-+
-+    changed
 +}
 +
  fn register_widgets(configuration: &BTreeMap<String, String>) -> BTreeMap<String, Arc<dyn Widget>> {
      let mut widget_map = BTreeMap::<String, Arc<dyn Widget>>::new();
- 
-@@ -424,6 +484,40 @@ fn register_widgets(configuration: &BTreeMap<String, String>) -> BTreeMap<String
+
+@@ -424,6 +491,33 @@ fn register_widgets(configuration: &BTreeMap<String, String>) -> BTreeMap<String
  mod test {
      use super::*;
- 
+
 +    #[test]
-+    fn refreshes_cached_focused_pane_title() {
++    fn refreshes_stale_fresh_session_focused_pane_title() {
 +        let mut panes = PaneManifest::default();
 +        panes.panes.insert(
 +            0,
@@ -101,25 +108,18 @@ index f9d95c7..5b62151 100644
 +                ..PaneInfo::default()
 +            }],
 +        );
-+        let current = PaneInfo {
-+            id: 1,
-+            is_focused: true,
-+            title: "startup-title".to_owned(),
-+            ..PaneInfo::default()
-+        };
-+
-+        assert!(refresh_cached_focused_pane(
++        assert!(refresh_cached_focused_pane_title(
 +            &mut panes,
 +            0,
 +            PaneId::Terminal(1),
-+            current.clone(),
++            "startup-title",
 +        ));
 +        assert_eq!(panes.panes[&0][0].title, "startup-title");
-+        assert!(!refresh_cached_focused_pane(
++        assert!(!refresh_cached_focused_pane_title(
 +            &mut panes,
 +            0,
 +            PaneId::Terminal(1),
-+            current,
++            "startup-title",
 +        ));
 +    }
 +

@@ -1,9 +1,15 @@
 #!/usr/bin/env zsh
 
 set -eu
+zmodload zsh/datetime
 
-if (( $# != 1 )); then
-  print -u2 -- "usage: ${0:t} /absolute/path/to/zjstatus.wasm"
+test_mode=full
+if (( $# == 2 )); then
+  test_mode=$1
+  shift
+fi
+if (( $# != 1 )) || [[ $test_mode != full && $test_mode != --grant-only && $test_mode != --startup-only ]]; then
+  print -u2 -- "usage: ${0:t} [--grant-only|--startup-only] /absolute/path/to/zjstatus.wasm"
   exit 2
 fi
 
@@ -20,15 +26,36 @@ client_pid=
 zellij_client_pid=
 
 cleanup() {
-  zellij kill-session "$zellij_session" 2>/dev/null || true
+  local cleanup_result=0
+
   [[ -z $zellij_client_pid ]] || kill "$zellij_client_pid" 2>/dev/null || true
   if [[ -n $client_pid ]]; then
     kill "$client_pid" 2>/dev/null || true
     wait "$client_pid" 2>/dev/null || true
   fi
-  command rm -r -- "$test_dir"
+  zellij kill-session "$zellij_session" 2>/dev/null || true
+
+  for _ in {1..20}; do
+    zellij list-sessions --short --no-formatting 2>/dev/null |
+      rg -Fxq "$zellij_session" || break
+    sleep 0.05
+  done
+  if zellij list-sessions --short --no-formatting 2>/dev/null |
+    rg -Fxq "$zellij_session"; then
+    print -u2 -- "failed to stop Zellij session: $zellij_session"
+    cleanup_result=1
+  fi
+  [[ ! -d $test_dir ]] || command rm -r -- "$test_dir"
+  return $cleanup_result
 }
-trap cleanup EXIT INT TERM
+
+trap 'cleanup; exit 130' INT
+trap 'cleanup; exit 143' TERM
+
+run_test() {
+  setopt localoptions errreturn
+  unsetopt errexit
+  {
 
 cat > "$test_dir/.zshrc" <<'EOF'
 PROMPT='test> '
@@ -63,7 +90,7 @@ cat > "$test_dir/layout.kdl" <<EOF
 layout {
     default_tab_template {
         pane size=1 borderless=true {
-            plugin location="file:$escaped_plugin_path" {
+            plugin location="file:$escaped_plugin_path" skip_plugin_cache=true {
                 format_left "{tabs}"
                 format_center ""
                 format_right ""
@@ -92,35 +119,43 @@ client_pid=$!
 
 for _ in {1..50}; do
   [[ -n $zellij_client_pid ]] || zellij_client_pid=$(pgrep -P "$client_pid" zellij || true)
-  zellij list-sessions --no-formatting 2>/dev/null | command grep -Fq "$zellij_session" && break
+  zellij list-sessions --no-formatting 2>/dev/null | rg -Fq "$zellij_session" && break
   sleep 0.1
 done
 
 panes='[]'
-pane_id=
+plugin_id=
+terminal_id=
 for _ in {1..50}; do
   panes=$(zellij --session "$zellij_session" action list-panes --all --json)
-  pane_id=$(
+  plugin_id=$(
     print -r -- "$panes" |
       jq -r --arg plugin_path "$plugin_path" \
         '.[] | select(.is_plugin and (.plugin_url | endswith($plugin_path))) | "plugin_\(.id)"' |
       head -n 1
   )
-  [[ -n $pane_id ]] && break
+  terminal_id=$(print -r -- "$panes" | jq -r '.[] | select(.is_plugin | not) | "terminal_\(.id)"' | head -n 1)
+  [[ -n $plugin_id && -n $terminal_id ]] && break
   sleep 0.1
 done
-[[ -n $pane_id ]] || {
+[[ -n $plugin_id ]] || {
   print -u2 -- 'zjstatus plugin pane not found'
   print -u2 -- "$panes"
-  exit 1
+  return 1
 }
+
+if [[ $test_mode == --grant-only ]]; then
+  zellij --session "$zellij_session" action write --pane-id "$plugin_id" 121
+  sleep 0.2
+  return 0
+fi
 
 wait_for_title() {
   local expected=$1
   local timeout_seconds=$2
-  local deadline=$(( SECONDS + timeout_seconds ))
+  local deadline=$(( EPOCHREALTIME + timeout_seconds ))
 
-  while (( SECONDS < deadline )); do
+  while (( EPOCHREALTIME < deadline )); do
     LC_ALL=C rg -aFq "ZJSTART${expected}ZJEND" "$test_dir/client.log" && return 0
     sleep 0.1
   done
@@ -130,7 +165,69 @@ wait_for_title() {
   return 1
 }
 
+send_osc_title() {
+  local title=$1
+  local marker=ZJUPDATE-$title
+  local execution_marker=ZJEXEC-$title
+  local update_command="print -n -- \$'\\e]0;${title}\\a'; print -r -- ZJEX''EC-$title # $marker"
+  local update_prepared=false
+  local update_executed=false
+
+  zellij --session "$zellij_session" action write-chars --pane-id "$terminal_id" "$update_command"
+  for _ in {1..50}; do
+    if zellij --session "$zellij_session" action dump-screen --pane-id "$terminal_id" |
+      rg -Fq "$marker"; then
+      update_prepared=true
+      break
+    fi
+    sleep 0.01
+  done
+  $update_prepared || {
+    print -u2 -- "timed out preparing OSC update: $title"
+    return 1
+  }
+  for _ in {1..5}; do
+    zellij --session "$zellij_session" action send-keys --pane-id "$terminal_id" Enter
+    for _ in {1..10}; do
+      if zellij --session "$zellij_session" action dump-screen --pane-id "$terminal_id" |
+        rg -Fq "$execution_marker"; then
+        update_executed=true
+        break 2
+      fi
+      sleep 0.01
+    done
+  done
+  $update_executed || {
+    print -u2 -- "timed out executing OSC update: $title"
+    return 1
+  }
+}
+
 wait_for_title startup-title 5
-zellij --session "$zellij_session" action write-chars "print -n -- \$'\\e]0;updated-title\\a'"
-zellij --session "$zellij_session" action send-keys Enter
-wait_for_title updated-title 2
+[[ $test_mode != --startup-only ]] || return 0
+send_osc_title primed-title
+wait_for_title primed-title 2
+primed_render_count=$(LC_ALL=C rg -ao 'ZJSTARTprimed-titleZJEND' "$test_dir/client.log" | wc -l | tr -d ' ')
+for _ in {1..120}; do
+  current_render_count=$(LC_ALL=C rg -ao 'ZJSTARTprimed-titleZJEND' "$test_dir/client.log" | wc -l | tr -d ' ')
+  (( current_render_count > primed_render_count )) && break
+  sleep 0.01
+done
+(( current_render_count > primed_render_count )) || {
+  print -u2 -- 'timed out aligning with zjstatus timer'
+  return 1
+}
+update_started=$EPOCHREALTIME
+send_osc_title updated-title
+wait_for_title updated-title 0.8
+update_elapsed=$(( EPOCHREALTIME - update_started ))
+(( update_elapsed < 0.8 )) || {
+  print -u2 -- "title update took ${update_elapsed}s; timer interval is 1s"
+  return 1
+}
+  } always {
+    cleanup
+  }
+}
+
+run_test

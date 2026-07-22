@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Remove program names from Smart Tabs labels.
 - Pad Smart Tabs glyph boundary to prevent right-edge clipping.
 - Load Smart Tabs from a Nix-managed local plugin file.
 - Document repository issue tracking, triage labels, and domain context conventions for engineering agents.

@@ -270,11 +270,7 @@ plugins {
     plugin-manager location="zellij:plugin-manager"
     session-manager location="zellij:session-manager"
     smart-tabs location="file:~/.config/zellij/plugins/zellij-smart-tabs.wasm" {
-        sub {
-            program {
-                zsh "$"
-            }
-        }
+        format "{% if short_git_root %}{{ short_git_root }}{% else %}{{ short_dir }}{% endif %}{% if program %}\u{eab6} {{ program }}{% endif %}{% if status %} | {{ status }}{% endif %} "
     }
     status-bar location="zellij:status-bar"
     strider location="zellij:strider"

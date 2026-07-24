@@ -163,8 +163,6 @@ source $HOME/.config/zsh/.zshrc.customize
 
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 if [ -f "$HOME/.local/bin/env" ]; then
   . "$HOME/.local/bin/env"
 fi

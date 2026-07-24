@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Preserve modifier chords in app-specific Karabiner swaps.
 - Load FZF Zsh integration so Ctrl-R history search works on remote hosts.
 - Remove program names from Smart Tabs labels.
 - Pad Smart Tabs glyph boundary to prevent right-edge clipping.

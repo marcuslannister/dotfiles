@@ -342,6 +342,13 @@ alias oco="onecli run --agent default -- codex"
 alias ood="oco --dangerously-bypass-approvals-and-sandbox"
 alias oodc="oco resume --last --dangerously-bypass-approvals-and-sandbox"
 
+alias ct="claude-tap"
+alias ctcd="ct -- --dangerously-skip-permissions"
+alias ctcdc="ct -- --dangerously-skip-permissions -c"
+
+alias ctod="ct --tap-client codex --dangerously-bypass-approvals-and-sandbox"
+alias ctodc="ct --tap-client codex resume --last --dangerously-bypass-approvals-and-sandbox"
+
 # nodejs
 alias npsu="npx skills update -g -y"
 

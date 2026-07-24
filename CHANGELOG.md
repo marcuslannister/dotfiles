@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add shortcuts for Claude Tap sessions with Claude and Codex clients.
 - Preserve modifier chords in app-specific Karabiner swaps.
 - Load FZF Zsh integration so Ctrl-R history search works on remote hosts.
 - Remove program names from Smart Tabs labels.

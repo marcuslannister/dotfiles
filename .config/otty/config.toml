@@ -55,6 +55,12 @@ font-family = "MonoLisa Nerd Font"
 # keybind = "opt+5=goto_tab:5"
 # keybind = "opt+6=goto_tab:6"
 keybind = "ctrl+v=paste"
+keybind = "opt+1=goto_tab:1"
+keybind = "opt+2=goto_tab:2"
+keybind = "opt+3=goto_tab:3"
+keybind = "opt+4=goto_tab:4"
+keybind = "opt+5=goto_tab:5"
+keybind = "opt+6=goto_tab:6"
 
 font-blending = "macos-like"
 # font-thicken = true   # uncomment if strokes still look too thin vs kitty
@@ -67,4 +73,6 @@ cursor-animation = "smooth"
 
 cursor-color = "#a33a3a"
 
-cursor-style-blink = true
+cursor-style-blink = "always_on"
+
+privilege-caffeinate-agent-processing = true

@@ -21,6 +21,7 @@ typeset -U path PATH
       /Applications/Emacs.app/Contents/MacOS/bin
       /Applications/Emacs.app/Contents/MacOS
       /opt/homebrew/bin
+      $HOME/.cache/.bun/bin
       $path
     )
 export PATH

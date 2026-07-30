@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add Bun's global bin directory to PATH so pinned global installs (e.g. ccstatusline) resolve.
 - Add shortcuts for Claude Tap sessions with Claude and Codex clients.
 - Preserve modifier chords in app-specific Karabiner swaps.
 - Load FZF Zsh integration so Ctrl-R history search works on remote hosts.

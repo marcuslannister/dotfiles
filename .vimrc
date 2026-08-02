@@ -464,8 +464,9 @@ xnoremap x j
 xnoremap X k
 
 " d: delete without touching a register (Hel's hel-delete)
+" No selection: delete the char under point, like x but register-silent
 " D keeps Vim's default delete+yank, matching Hel's hel-cut
-nnoremap d "_d
+nnoremap d "_x
 xnoremap d "_d
 
 " U: redo (u stays as undo)

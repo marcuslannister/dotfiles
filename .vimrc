@@ -456,6 +456,22 @@ nnoremap gV `[v`]
 inoremap jk <esc>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Hel-style modal editing (mirrors ~/.emacs.d/lisp/init-local-hel.el)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" x: select current line, extend downward with repeated x; X extends upward
+nnoremap x V
+xnoremap x j
+xnoremap X k
+
+" d: delete without touching a register (Hel's hel-delete)
+" D keeps Vim's default delete+yank, matching Hel's hel-cut
+nnoremap d "_d
+xnoremap d "_d
+
+" U: redo (u stays as undo)
+nnoremap U <C-r>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " https://vimrcfu.com
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " View and paste from a register

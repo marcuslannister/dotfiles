@@ -13,3 +13,4 @@
 - Keep ANSI black text visible in Kitty's light theme.
 - Load zjstatus from its latest GitHub release instead of a local plugin copy.
 - Stop starting Zellij sessions in locked mode.
+- Add --impure to the drb/drs darwin-rebuild aliases so the nix-config flake's dynamic username resolves instead of evaluating to an empty string.

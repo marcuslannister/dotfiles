@@ -286,8 +286,8 @@ alias vgh="vi ~/.config/ghostty/config"
 alias vsc="vi ~/.ssh/config"
 
 # nix config
-alias drb="sudo -E darwin-rebuild build --flake ."
-alias drs="sudo -E darwin-rebuild switch --flake ."
+alias drb="sudo -E darwin-rebuild build --flake . --impure"
+alias drs="sudo -E darwin-rebuild switch --flake . --impure"
 alias nrd="nix run github:serokell/deploy-rs -- -s"
 alias nfu="nix flake update"
 alias nfuh="nix flake update home-manager"

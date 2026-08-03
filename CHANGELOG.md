@@ -15,3 +15,4 @@
 - Stop starting Zellij sessions in locked mode.
 - Add --impure to the drb/drs darwin-rebuild aliases so the nix-config flake's dynamic username resolves instead of evaluating to an empty string.
 - Remap Vim's x/X, d, and U to match Hel's Kakoune-style line selection, no-yank delete, and redo bindings.
+- Load scmpuff shell integration, extending its git wrapper so numeric file shortcuts also expand for difftool and mergetool.

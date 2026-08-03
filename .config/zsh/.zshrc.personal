@@ -378,3 +378,12 @@ fi
 
 # repo-check: sweep repos for uncommitted + unpushed changes
 alias repo-check="$HOME/dotfiles/local/bin/repo-check"
+
+# scmpuff's generated git() wrapper only expands [n] shortcuts for a fixed
+# subcommand list, so `gdty 1` reaches git as a literal "1". Splice difftool
+# and mergetool into the --relative arm (they take diff's pathspecs). Done with
+# zsh substitution rather than sed/sd so it needs no external binary; if
+# upstream restructures that case arm it no-ops and scmpuff still loads.
+_scmpuff_init="$(scmpuff init -s)"
+eval "${_scmpuff_init//checkout|diff|rm|reset|restore/checkout|diff|difftool|mergetool|rm|reset|restore}"
+unset _scmpuff_init

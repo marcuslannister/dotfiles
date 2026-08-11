@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Track the TTY7 configuration for deployment through nix-config.
 - Add Bun's global bin directory to PATH so pinned global installs (e.g. ccstatusline) resolve.
 - Add shortcuts for Claude Tap sessions with Claude and Codex clients.
 - Preserve modifier chords in app-specific Karabiner swaps.

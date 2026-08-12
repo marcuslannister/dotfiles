@@ -1,5 +1,15 @@
 {
   "trustedtaps": [
-    "d12frosted/emacs-plus"
+    "barrybarrywu/tap",
+    "d12frosted/emacs-plus",
+    "daipeihust/tap",
+    "darrylmorley/whatcable",
+    "farion1231/ccswitch",
+    "hakky54/crip",
+    "lance0/tap",
+    "pouriyajamshidi/tap",
+    "supercmdlabs/supercmd",
+    "tw93/tap",
+    "wez/wezterm"
   ]
 }

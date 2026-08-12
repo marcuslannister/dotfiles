@@ -22,7 +22,10 @@ print -r -- '__otty_dump_aliases() {
 precmd_functions+=(__otty_dump_aliases)' > "$integration_dir/otty-integration.zsh"
 
 output=$(
-  OTTY_SHELL_INTEGRATION=$integration_dir ZDOTDIR=$repo_root TMPDIR=$integration_dir zsh -lic '
+  OTTY_SHELL_INTEGRATION=$integration_dir REPO_ROOT=$repo_root TMPDIR=$integration_dir zsh -dfi -c '
+    source "$REPO_ROOT/.zshenv"
+    zstyle ":zim:completion" dumpfile "$TMPDIR/.zcompdump"
+    source "$REPO_ROOT/.zshrc"
     setopt noclobber
     test_dir=$(mktemp -d)
     TMPDIR=$test_dir

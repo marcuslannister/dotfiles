@@ -25,12 +25,10 @@ palette-15 = "#ebebe6"
 
 # privilege-notification-on-finish = true (reset to default)
 
-# copy-on-select = true (reset to default)
 clipboard-trim-trailing-spaces = true
 editor-visible-whitespace = true
 
 # selection-background = "#edc4be" (reset to default)
-# cursor-color = "#cc8595" (reset to default)
 
 # selection-foreground = "#2a2422" (reset to default)
 # cursor-text = "#f5f0f0" (reset to default)
@@ -67,7 +65,6 @@ font-blending = "macos-like"
 
 copy-on-select = true
 
-# cursor-style-blink = true (reset to default)
 
 cursor-animation = "smooth"
 
@@ -76,3 +73,5 @@ cursor-color = "#a33a3a"
 cursor-style-blink = "always_on"
 
 privilege-caffeinate-agent-processing = true
+
+sidebar-width = 159

@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Authenticate git over HTTPS through `gh` rather than git-credential-manager, with `helper = !gh auth git-credential` for github.com and gist.github.com. The helper is written without an absolute path so it resolves on the Debian hosts too, where the Nix path `gh auth setup-git` emits does not exist. This also drops the GCM helper and the Azure DevOps entry that the cask's installer had appended.
 - Bind alt-1 through alt-6 to TTY7 tabs and ctrl-v to paste, and add the comma the keybindings block was missing, which had left the file invalid JSON and unparseable by TTY7.
 - Trust the ten third-party Homebrew taps whose formulae and casks nix-config now Declares. `brew bundle` refuses to load a formula from an untrusted tap and takes `darwin-rebuild switch` down with it. Activation reads this file rather than `~/.config/homebrew/trust.json` because it runs without `XDG_CONFIG_HOME`, so entries have to be written with `env -u XDG_CONFIG_HOME brew trust --taps`.
 - Drop the Homebrew coreutils gnubin directory from `PATH`: nix-config installs plain `coreutils` system-wide, so GNU `ls`/`cp`/`rm`/`date` still win without Homebrew, and the directory no longer exists.

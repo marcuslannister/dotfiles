@@ -17,7 +17,10 @@ if [ "$OS" = 'Mac' ]; then
 
 typeset -U path PATH
     path=(
-      /opt/homebrew/opt/coreutils/libexec/gnubin
+      # The Homebrew coreutils gnubin directory used to lead this list, which
+      # put GNU ls/cp/rm/date ahead of the BSD ones.  Nix now installs plain
+      # coreutils system-wide (see nix-config common-darwin.nix), so the GNU
+      # tools keep winning without Homebrew.
       /Applications/Emacs.app/Contents/MacOS/bin
       /Applications/Emacs.app/Contents/MacOS
       /opt/homebrew/bin

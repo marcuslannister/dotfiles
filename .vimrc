@@ -468,6 +468,8 @@ xnoremap X k
 " D keeps Vim's default delete+yank, matching Hel's hel-cut
 nnoremap d "_x
 xnoremap d "_d
+nnoremap dp :diffput<CR>
+nnoremap dg :diffget<CR>
 
 " U: redo (u stays as undo)
 nnoremap U <C-r>
@@ -558,4 +560,3 @@ function! CopyYank() abort
   call Yank(join(v:event.regcontents, "\n"))
 endfunction
 autocmd TextYankPost * call CopyYank()
-

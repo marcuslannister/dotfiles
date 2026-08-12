@@ -36,3 +36,9 @@
 [difftool "ediff-tui"]
     cmd = git-ediff-tui \"$LOCAL\" \"$REMOTE\"
     trustExitCode = true
+[credential "https://github.com"]
+	helper = 
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !gh auth git-credential

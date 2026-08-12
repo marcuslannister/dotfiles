@@ -286,8 +286,16 @@ alias vgh="vi ~/.config/ghostty/config"
 alias vsc="vi ~/.ssh/config"
 
 # nix config
-alias drb="sudo -E darwin-rebuild build --flake . --impure"
-alias drs="sudo -E darwin-rebuild switch --flake . --impure"
+# No sudo: building only writes to the store through the daemon, which is
+# already root, and a root fetch of the flake inputs does not go through the
+# proxy the way the user's own session does.
+alias drb="darwin-rebuild build --flake . --impure"
+# sudo without -E: activation needs root, but -E carries XDG_CONFIG_HOME in,
+# which makes `brew bundle` read ~/.config/homebrew/trust.json instead of the
+# ~/.homebrew/trust.json symlink home-manager deploys from this repo.  The
+# username does not need -E either; nix-config's flake.nix prefers SUDO_USER,
+# which sudo sets by itself.
+alias drs="sudo darwin-rebuild switch --flake . --impure"
 alias nrd="nix run github:serokell/deploy-rs -- -s"
 alias nfu="nix flake update"
 alias nfuh="nix flake update home-manager"

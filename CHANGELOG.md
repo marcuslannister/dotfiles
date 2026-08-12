@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Bind alt-1 through alt-6 to TTY7 tabs and ctrl-v to paste, and add the comma the keybindings block was missing, which had left the file invalid JSON and unparseable by TTY7.
+- Trust the ten third-party Homebrew taps whose formulae and casks nix-config now Declares. `brew bundle` refuses to load a formula from an untrusted tap and takes `darwin-rebuild switch` down with it. Activation reads this file rather than `~/.config/homebrew/trust.json` because it runs without `XDG_CONFIG_HOME`, so entries have to be written with `env -u XDG_CONFIG_HOME brew trust --taps`.
+- Drop the Homebrew coreutils gnubin directory from `PATH`: nix-config installs plain `coreutils` system-wide, so GNU `ls`/`cp`/`rm`/`date` still win without Homebrew, and the directory no longer exists.
 - Track the TTY7 configuration for deployment through nix-config.
 - Add Bun's global bin directory to PATH so pinned global installs (e.g. ccstatusline) resolve.
 - Add shortcuts for Claude Tap sessions with Claude and Codex clients.

@@ -21,7 +21,15 @@
   "window_opacity": null,
   "window_blur": null,
   "dim_inactive_panes": true,
-  "keybindings": {},
+  "keybindings": {
+    "ActivateTab1": "alt-1",
+    "ActivateTab2": "alt-2",
+    "ActivateTab3": "alt-3",
+    "ActivateTab4": "alt-4",
+    "ActivateTab5": "alt-5",
+    "ActivateTab6": "alt-6",
+    "PasteText": "ctrl-v"
+  },
   "keybinding_preset": "default",
   "prefix": "ctrl-b",
   "shell": null,

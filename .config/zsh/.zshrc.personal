@@ -213,10 +213,6 @@ alias ipa="hostname -I | awk '{print \$1}'"
 # alias nclf='echo "nc -q 0 $(ipa) 9012 <" ; nc -lv -p 9012 >'
 alias nclf='echo "nc $(ipa) 9012 <" ; nc -l 9012 >'
 
-# go
-export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:$HOME/.local/bin
-
 # git commit
 alias ncc='npx commitlint --from HEAD~1 --to HEAD --verbose'
 

@@ -53,6 +53,10 @@ path+=("$HOME/Projects/agent-scripts/scripts")
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:$HOME/.local/bin
 
+# npm global prefix (moved off ~/.local to avoid collision with native claude's ~/.local/bin)
+# Lives here, not in .zshrc, so non-interactive shells (Claude Code hooks) find it too.
+export PATH="$HOME/.local/npm-global/bin:$PATH"
+
 # export TERM='xterm-256color'
 # export TERM='screen-256color'
 # export TERM='dvtm-256color'

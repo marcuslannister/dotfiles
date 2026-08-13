@@ -21,6 +21,7 @@ typeset -U path PATH
       # put GNU ls/cp/rm/date ahead of the BSD ones.  Nix now installs plain
       # coreutils system-wide (see nix-config common-darwin.nix), so the GNU
       # tools keep winning without Homebrew.
+      /run/current-system/sw/bin
       /Applications/Emacs.app/Contents/MacOS/bin
       /Applications/Emacs.app/Contents/MacOS
       /opt/homebrew/bin
@@ -85,5 +86,4 @@ export BG_WHITE='\033[47m'       # White
 # skip Completion in /etc/zshrc
 skip_global_compinit=1
 
-export PATH="/run/current-system/sw/bin:$PATH"
 export LANG=en_US.UTF-8

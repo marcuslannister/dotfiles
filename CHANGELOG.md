@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add Claude command shortcuts, translate `--fs` to `--fork-session`, and make the Nix system profile and UTF-8 locale available to Zsh.
 - Add explicit Vim `dp` and `dg` mappings for diff put and diff get after remapping `d` to a no-yank character delete.
 - Add a regression test that keeps the eza aliases after SCM Breeze wraps `ls`, and keep the OTTY integration test from writing generated Zim state into the repository.
 - Set the OTTY sidebar width to 159 pixels and remove stale comments for settings that use their defaults.

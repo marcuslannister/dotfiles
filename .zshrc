@@ -209,3 +209,14 @@ if [ -n "$OTTY_SHELL_INTEGRATION" ] && [ -r "$OTTY_SHELL_INTEGRATION/otty-integr
   . "$OTTY_SHELL_INTEGRATION/otty-integration.zsh"
 fi
 # <<< otty shell integration <<<
+# >>> claude-env >>>
+alias c='claude'
+alias cs='claude --dangerously-skip-permissions'
+claude() {
+  local args=()
+  for arg in "$@"; do
+    if [[ "$arg" == "--fs" ]]; then args+=("--fork-session"); else args+=("$arg"); fi
+  done
+  command claude "${args[@]}"
+}
+# <<< claude-env <<<

@@ -48,10 +48,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$HOME/.emacs.d/bin:$PYENV_ROOT/bin:$HOME/local/bin:$PATH"
 path+=("$HOME/Projects/agent-scripts/scripts")
 
-# lc type
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
 # export TERM='xterm-256color'
 # export TERM='screen-256color'
 # export TERM='dvtm-256color'
@@ -89,3 +85,5 @@ export BG_WHITE='\033[47m'       # White
 # skip Completion in /etc/zshrc
 skip_global_compinit=1
 
+export PATH="/run/current-system/sw/bin:$PATH"
+export LANG=en_US.UTF-8

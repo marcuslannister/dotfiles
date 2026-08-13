@@ -165,9 +165,7 @@ if [ -f "$HOME/.local/bin/env" ]; then
   . "$HOME/.local/bin/env"
 fi
 
-# npm global prefix (moved off ~/.local to avoid collision with native claude's ~/.local/bin)
-export PATH="$HOME/.local/npm-global/bin:$PATH"
-
+# npm global prefix moved to .zshenv so non-interactive shells get it too.
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/ken/.cache/lm-studio/bin"

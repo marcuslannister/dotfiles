@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Move the npm global bin directory from `.zshrc` to `.zshenv` so non-interactive Zsh sessions, such as Claude Code hooks, also resolve globally installed tools like `codegraph`.
 - Make the Go toolchain path and `IC_BOX` available to all Zsh invocations.
 - Add Claude command shortcuts, translate `--fs` to `--fork-session`, and make the Nix system profile and UTF-8 locale available to Zsh.
 - Give `ls` back the numeric shortcuts SCM Breeze used to wrap it with, through `scmpuff exec --relative`, and guard the whole scmpuff block on the binary being present. nix-config Declares scmpuff on every host now, but one that has not switched yet would otherwise print "command not found" at each shell and be left with no `ls` at all. The eza alias test forks the same way.

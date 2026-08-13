@@ -30,7 +30,16 @@ if [[ "$actual_l" != *"eza -l -snew --icons"* ]]; then
   exit 1
 fi
 
-if [[ "$actual_ls" != "ls='eza --icons'" ]]; then
-  printf 'expected ls to preserve the eza alias, got: %s\n' "$actual_ls" >&2
-  exit 1
+# Every host Declares scmpuff, but one that has not switched yet has no
+# binary, and there ls has to stay a plain eza alias rather than break.
+if command -v scmpuff >/dev/null 2>&1; then
+  if [[ "$actual_ls" != *"scmpuff exec --relative -- eza --icons"* ]]; then
+    printf 'expected ls to keep scmpuff argument expansion around eza, got: %s\n' "$actual_ls" >&2
+    exit 1
+  fi
+else
+  if [[ "$actual_ls" != "ls='eza --icons'" ]]; then
+    printf 'expected ls to fall back to plain eza without scmpuff, got: %s\n' "$actual_ls" >&2
+    exit 1
+  fi
 fi

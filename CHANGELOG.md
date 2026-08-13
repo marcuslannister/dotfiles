@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Add Claude command shortcuts, translate `--fs` to `--fork-session`, and make the Nix system profile and UTF-8 locale available to Zsh.
+- Give `ls` back the numeric shortcuts SCM Breeze used to wrap it with, through `scmpuff exec --relative`, and guard the whole scmpuff block on the binary being present. nix-config Declares scmpuff on every host now, but one that has not switched yet would otherwise print "command not found" at each shell and be left with no `ls` at all. The eza alias test forks the same way.
 - Add explicit Vim `dp` and `dg` mappings for diff put and diff get after remapping `d` to a no-yank character delete.
 - Remove obsolete SCM Breeze loading, keep the eza alias test independent of optional tools, and keep the OTTY integration test from writing generated Zim state into the repository.
 - Set the OTTY sidebar width to 159 pixels and remove stale comments for settings that use their defaults.

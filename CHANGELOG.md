@@ -4,7 +4,7 @@
 
 - Add Claude command shortcuts, translate `--fs` to `--fork-session`, and make the Nix system profile and UTF-8 locale available to Zsh.
 - Add explicit Vim `dp` and `dg` mappings for diff put and diff get after remapping `d` to a no-yank character delete.
-- Add a regression test that keeps the eza aliases after SCM Breeze wraps `ls`, and keep the OTTY integration test from writing generated Zim state into the repository.
+- Remove obsolete SCM Breeze loading, keep the eza alias test independent of optional tools, and keep the OTTY integration test from writing generated Zim state into the repository.
 - Set the OTTY sidebar width to 159 pixels and remove stale comments for settings that use their defaults.
 - Authenticate git over HTTPS through `gh` rather than git-credential-manager, with `helper = !gh auth git-credential` for github.com and gist.github.com. The helper is written without an absolute path so it resolves on the Debian hosts too, where the Nix path `gh auth setup-git` emits does not exist. This also drops the GCM helper and the Azure DevOps entry that the cask's installer had appended.
 - Bind alt-1 through alt-6 to TTY7 tabs and ctrl-v to paste, and add the comma the keybindings block was missing, which had left the file invalid JSON and unparseable by TTY7.

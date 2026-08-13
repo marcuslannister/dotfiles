@@ -161,8 +161,6 @@ source $HOME/.config/zsh/.zshrc.customize
 # PURE_GIT_DOWN_ARROW='↓'
 # PURE_GIT_UP_ARROW='↑'
 
-[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
-
 if [ -f "$HOME/.local/bin/env" ]; then
   . "$HOME/.local/bin/env"
 fi

@@ -30,7 +30,7 @@ if [[ "$actual_l" != *"eza -l -snew --icons"* ]]; then
   exit 1
 fi
 
-if [[ "$actual_ls" != *"exec_scmb_expand_args eza --icons"* ]]; then
-  printf 'expected ls to keep SCM Breeze argument expansion around eza, got: %s\n' "$actual_ls" >&2
+if [[ "$actual_ls" != "ls='eza --icons'" ]]; then
+  printf 'expected ls to preserve the eza alias, got: %s\n' "$actual_ls" >&2
   exit 1
 fi

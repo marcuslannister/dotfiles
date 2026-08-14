@@ -97,3 +97,11 @@ skip_global_compinit=1
 export LANG=en_US.UTF-8
 
 export IC_BOX="marcus@mac-mini-m1.local"
+
+# >>> grok installer >>>
+# PATH + fpath live here so non-interactive shells find grok, and so zim's
+# single compinit in .zshrc picks up the completions. Do not call compinit
+# here — zim already does that once.
+export PATH="$HOME/.grok/bin:$PATH"
+fpath=(~/.grok/completions/zsh $fpath)
+# <<< grok installer <<<

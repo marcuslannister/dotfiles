@@ -356,6 +356,8 @@ alias ctcdc="ct -- --dangerously-skip-permissions -c"
 alias ctod="ct --tap-client codex --dangerously-bypass-approvals-and-sandbox"
 alias ctodc="ct --tap-client codex resume --last --dangerously-bypass-approvals-and-sandbox"
 
+alias pic="pi -c"
+
 # nodejs
 alias npsu="npx skills update -g -y"
 

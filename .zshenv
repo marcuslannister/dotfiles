@@ -46,7 +46,7 @@ fi
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$HOME/.emacs.d/bin:$PYENV_ROOT/bin:$HOME/local/bin:$PATH"
+export PATH="$HOME/.emacs.d:$HOME/.emacs.d/bin:$PYENV_ROOT/bin:$HOME/local/bin:$PATH"
 path+=("$HOME/Projects/agent-scripts/scripts")
 
 # go

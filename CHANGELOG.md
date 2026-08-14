@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add `gu`/`gf`/`gl` git aliases for push, pull, and a graph log.
 - Move the npm global bin directory from `.zshrc` to `.zshenv` so non-interactive Zsh sessions, such as Claude Code hooks, also resolve globally installed tools like `codegraph`.
 - Make the Go toolchain path and `IC_BOX` available to all Zsh invocations.
 - Add Claude command shortcuts, translate `--fs` to `--fork-session`, and make the Nix system profile and UTF-8 locale available to Zsh.

@@ -55,6 +55,9 @@ alias gdtyc="git difftool -y --cached"
 alias gdt1="git difftool --depth=1"
 alias gssu="git status -s -uno"
 alias gcp="git cherry-pick"
+alias gu="git push"
+alias gf="git pull"
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 # for disk space
 alias dm='du -h --max-depth=1 | sort -hr'

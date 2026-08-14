@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add the Emacs configuration directory to `PATH` so MCP clients can resolve the Anvil launcher.
 - Add `gu`/`gf`/`gl` git aliases for push, pull, and a graph log.
 - Move the npm global bin directory from `.zshrc` to `.zshenv` so non-interactive Zsh sessions, such as Claude Code hooks, also resolve globally installed tools like `codegraph`.
 - Make the Go toolchain path and `IC_BOX` available to all Zsh invocations.

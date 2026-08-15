@@ -399,8 +399,18 @@ if (( $+commands[scmpuff] )); then
   # zsh substitution rather than sed/sd so it needs no external binary; if
   # upstream restructures that case arm it no-ops and scmpuff still loads.
   _scmpuff_init="$(scmpuff init -s)"
-  eval "${_scmpuff_init//checkout|diff|rm|reset|restore/checkout|diff|difftool|mergetool|rm|reset|restore}"
-  unset _scmpuff_init
+  _scmpuff_init="${_scmpuff_init//checkout|diff|rm|reset|restore/checkout|diff|difftool|mergetool|rm|reset|restore}"
+
+  # scmpuff sets SCMPUFF_GIT_CMD and defines git() together, but the two travel
+  # apart: anything that replays the function without the environment -- Claude
+  # Code's shell snapshot does exactly this -- gets a wrapper whose command word
+  # is empty, and every git call dies with "permission denied". Give the four
+  # call sites a fallback so the function stands on its own. The :- arm never
+  # runs in a shell that sourced this file, so an interactive shell pays nothing.
+  _scmpuff_git_cmd='"$SCMPUFF_GIT_CMD"'
+  _scmpuff_git_alt='"${SCMPUFF_GIT_CMD:-${commands[git]}}"'
+  eval "${_scmpuff_init//$_scmpuff_git_cmd/$_scmpuff_git_alt}"
+  unset _scmpuff_init _scmpuff_git_cmd _scmpuff_git_alt
 
   # scmpuff wraps git alone, where SCM Breeze also rewrote the ls alias so that
   # `ls 1 2` took the numbers from the last status. `scmpuff exec` is the same

@@ -208,6 +208,7 @@ fi
 # >>> claude-env >>>
 alias c='claude'
 alias cs='claude --dangerously-skip-permissions'
+alias pig='pi --model xai/grok-4.6'
 claude() {
   local args=()
   for arg in "$@"; do

@@ -8,6 +8,7 @@
     "hakky54/crip",
     "lance0/tap",
     "lihaoyun6/tap",
+    "muxy-app/tap",
     "neighbor-z/swiftmtp",
     "nowledge-co/tap",
     "pouriyajamshidi/tap",
@@ -16,5 +17,10 @@
     "supercmdlabs/supercmd",
     "tw93/tap",
     "wez/wezterm"
+  ],
+  "trustedcasks": [
+    "barrybarrywu/tap/tutti",
+    "supercmdlabs/supercmd/supercmd",
+    "tw93/tap/kakuku"
   ]
 }

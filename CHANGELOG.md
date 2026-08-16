@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Share Homebrew trust between activation and interactive commands by adding `muxy-app/tap` and preserving the existing trusted casks in `.homebrew/trust.json`; nix-config deploys both Homebrew trust paths from this file.
 - Give scmpuff's `git` wrapper a fallback command word, `${SCMPUFF_GIT_CMD:-${commands[git]}}`, at each of its four call sites. scmpuff exports the variable and defines the function in one `eval`, but the two travel apart: Claude Code's shell snapshot replays the function into a non-interactive shell without the environment, leaving an empty command word, so every `git` call there failed with "permission denied". The `:-` arm never runs in a shell that sourced this file, so nothing changes for an interactive one.
 - Add the Emacs configuration directory to `PATH` so MCP clients can resolve the Anvil launcher.
 - Add `gu`/`gf`/`gl` git aliases for push, pull, and a graph log.

@@ -63,15 +63,6 @@ export PATH="$HOME/.local/npm-global/bin:$PATH"
 # export TERM='vt100'
 # export TERM='~/local/share/terminfo/d/dvtm-256color'
 
-# SSH forwards the client's TERM (e.g. muxy/Ghostty's xterm-ghostty), but
-# terminfo lives per-machine and rarely ships that entry. zle then can't
-# find cursor-addressing capabilities the moment it needs to redraw a line
-# -- prompt looks fine until you type, then the redraw corrupts. Fall back
-# to a universally-available entry when the reported TERM isn't installed.
-if [[ -n "$SSH_TTY" ]] && ! infocmp "$TERM" >/dev/null 2>&1; then
-  export TERM=xterm-256color
-fi
-
 export EDITOR='vim'
 
 # https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux

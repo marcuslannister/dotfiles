@@ -21,6 +21,7 @@
   ],
   "trustedcasks": [
     "barrybarrywu/tap/tutti",
+    "eryouhao/tap/graker",
     "supercmdlabs/supercmd/supercmd",
     "tw93/tap/kakuku"
   ]

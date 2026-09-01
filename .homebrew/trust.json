@@ -24,5 +24,8 @@
     "eryouhao/tap/graker",
     "supercmdlabs/supercmd/supercmd",
     "tw93/tap/kakuku"
+  ],
+  "trustedformulae": [
+    "pouriyajamshidi/tap/tcping"
   ]
 }

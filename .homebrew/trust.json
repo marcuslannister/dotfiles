@@ -27,6 +27,7 @@
     "tw93/tap/kakuku"
   ],
   "trustedformulae": [
+    "lance0/tap/ttl",
     "pouriyajamshidi/tap/tcping"
   ]
 }

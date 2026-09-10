@@ -1,5 +1,6 @@
 onboarding = false
 [keys]
+prefix = "ctrl+e"
 remote_image_paste = "alt+v"
 
 [theme]

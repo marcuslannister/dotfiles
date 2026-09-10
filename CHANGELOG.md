@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Point `EMACS`/`EMACSC`/`emacsclient` and `PATH` at the Homebrew `emacs-plus` binaries (`/opt/homebrew/bin`) instead of `/Applications/Emacs.app`, since nix-config now builds Emacs through Homebrew.
 - Add a Helix config (`.config/helix/config.toml`) with relative line numbers, cursorline, and cursor shapes; nix-config Declares it for every host through `mkDotfileSource`.
 - Share Homebrew trust between activation and interactive commands by adding `muxy-app/tap` and preserving the existing trusted casks in `.homebrew/trust.json`; nix-config deploys both Homebrew trust paths from this file.
 - Give scmpuff's `git` wrapper a fallback command word, `${SCMPUFF_GIT_CMD:-${commands[git]}}`, at each of its four call sites. scmpuff exports the variable and defines the function in one `eval`, but the two travel apart: Claude Code's shell snapshot replays the function into a non-interactive shell without the environment, leaving an empty command word, so every `git` call there failed with "permission denied". The `:-` arm never runs in a shell that sourced this file, so nothing changes for an interactive one.

@@ -22,8 +22,6 @@ typeset -U path PATH
       # coreutils system-wide (see nix-config common-darwin.nix), so the GNU
       # tools keep winning without Homebrew.
       /run/current-system/sw/bin
-      /Applications/Emacs.app/Contents/MacOS/bin
-      /Applications/Emacs.app/Contents/MacOS
       /opt/homebrew/bin
       $HOME/.cache/.bun/bin
       $path
@@ -31,9 +29,9 @@ typeset -U path PATH
 export PATH
 export HOMEBREW_NO_AUTO_UPDATE=1
 alias ls='gls'
-export EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs
-export EMACSC=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
-export emacsclient=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+export EMACS=/opt/homebrew/bin/emacs
+export EMACSC=/opt/homebrew/bin/emacsclient
+export emacsclient=/opt/homebrew/bin/emacsclient
 fi
 
 # Linux settings

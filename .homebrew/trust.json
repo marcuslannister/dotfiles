@@ -28,6 +28,7 @@
   ],
   "trustedformulae": [
     "lance0/tap/ttl",
-    "pouriyajamshidi/tap/tcping"
+    "pouriyajamshidi/tap/tcping",
+    "steipete/tap/peekaboo"
   ]
 }

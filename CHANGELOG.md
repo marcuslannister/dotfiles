@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add a `pia` alias for pi with gpt-6-astra.
 - Point `EMACS`/`EMACSC`/`emacsclient` and `PATH` at the Homebrew `emacs-plus` binaries (`/opt/homebrew/bin`) instead of `/Applications/Emacs.app`, since nix-config now builds Emacs through Homebrew.
 - Add a Helix config (`.config/helix/config.toml`) with relative line numbers, cursorline, and cursor shapes; nix-config Declares it for every host through `mkDotfileSource`.
 - Share Homebrew trust between activation and interactive commands by adding `muxy-app/tap` and preserving the existing trusted casks in `.homebrew/trust.json`; nix-config deploys both Homebrew trust paths from this file.

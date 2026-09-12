@@ -358,6 +358,7 @@ alias ctodc="ct --tap-client codex resume --last --dangerously-bypass-approvals-
 
 alias pic="pi -c"
 alias pig="pi --model xai/grok-4.6 --thinking high"
+alias pia="pi --model gpt-6-astra --thinking medium"
 
 # nodejs
 alias npsu="npx skills update -g -y"

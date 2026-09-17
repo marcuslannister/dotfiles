@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Point the `em` alias at `$EMACSC -t` so a terminal Emacs reuses Emacs.app instead of starting `emacs -nw`.
+- Prefer `emacsclient -t` in `git-ediff-tui` when a server is up, falling back to `emacs -nw`. Quitting ediff deletes the client tty frame and does not kill Emacs.app.
 - Trust the `steipete/tap/peekaboo` formula.
 - Add a `pia` alias for pi with gpt-6-astra.
 - Point `EMACS`/`EMACSC`/`emacsclient` and `PATH` at the Homebrew `emacs-plus` binaries (`/opt/homebrew/bin`) instead of `/Applications/Emacs.app`, since nix-config now builds Emacs through Homebrew.

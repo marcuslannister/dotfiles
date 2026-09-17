@@ -324,7 +324,7 @@ ze-nuke() {
 
 # emacs
 alias emg="$EMACSC -n"
-alias em="emacs -nw"
+alias em="$EMACSC -t"
 
 # Coding Agent
 alias cc="claude"

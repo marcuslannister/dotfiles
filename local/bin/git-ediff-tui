@@ -1,10 +1,25 @@
 #!/bin/sh
-export GIT_EDIFF_LOCAL=$1
-export GIT_EDIFF_REMOTE=$2
+# Prefer a live Emacs server (tty client frame). Fall back to emacs -nw.
+# Never kill-emacs on the server.
 
-exec emacs -nw --eval '(progn
-  (setq ediff-window-setup-function (quote ediff-setup-windows-plain)
-        ediff-split-window-function (quote split-window-horizontally))
-  (add-hook (quote ediff-quit-hook) (lambda () (kill-emacs)))
-  (ediff-files (getenv "GIT_EDIFF_LOCAL")
-               (getenv "GIT_EDIFF_REMOTE")))'
+el=$(printf '%s' "$1" | sed 's/\\/\\\\/g; s/"/\\"/g')
+er=$(printf '%s' "$2" | sed 's/\\/\\\\/g; s/"/\\"/g')
+
+form="(progn
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain
+        ediff-split-window-function 'split-window-horizontally)
+  (defun git-ediff-tui--on-quit ()
+    (remove-hook 'ediff-quit-hook #'git-ediff-tui--on-quit)
+    (when (frame-parameter nil 'git-ediff-tui)
+      (if (frame-parameter nil 'client)
+          (delete-frame nil t)
+        (kill-emacs))))
+  (set-frame-parameter nil 'git-ediff-tui t)
+  (add-hook 'ediff-quit-hook #'git-ediff-tui--on-quit)
+  (ediff-files \"$el\" \"$er\"))"
+
+if emacsclient -n -e t >/dev/null 2>&1; then
+  exec emacsclient -t --eval "$form"
+else
+  exec emacs -nw --eval "$form"
+fi

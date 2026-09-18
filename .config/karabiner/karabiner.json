@@ -4,7 +4,7 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Caps Lock (Hold) -> Hyper Key (⌘⌥^⇧), Caps Lock (Tap) -> Backspace",
+                        "description": "Caps Lock (Hold) -> Hyper Key (⌘⌥^⇧), Caps Lock (Tap) -> Caps Lock",
                         "manipulators": [
                             {
                                 "from": {
@@ -17,108 +17,40 @@
                                         "modifiers": ["left_shift", "left_option", "left_command"]
                                     }
                                 ],
-                                "to_if_alone": [{ "key_code": "caps_lock" }],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": ["left_command"]
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
                     },
                     {
-                        "description": "Change double tap right ⇧ key to caps lock",
+                        "description": "Control+v to Super+v: paste",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
-                                        "name": "right_shift pressed",
-                                        "type": "variable_if",
-                                        "value": 1
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.muxy\\.app$",
+                                            "^org\\.gnu\\.Emacs$"
+                                        ],
+                                        "type": "frontmost_application_if"
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "right_shift",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "key_code": "caps_lock" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "right_shift",
-                                    "modifiers": { "optional": ["any"] }
+                                    "key_code": "v",
+                                    "modifiers": { "mandatory": ["left_control"] }
                                 },
                                 "to": [
                                     {
-                                        "set_variable": {
-                                            "name": "right_shift pressed",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "key_code": "right_shift" }
-                                ],
-                                "to_delayed_action": {
-                                    "to_if_canceled": [
-                                        {
-                                            "set_variable": {
-                                                "name": "right_shift pressed",
-                                                "value": 0
-                                            }
-                                        }
-                                    ],
-                                    "to_if_invoked": [
-                                        {
-                                            "set_variable": {
-                                                "name": "right_shift pressed",
-                                                "value": 0
-                                            }
-                                        }
-                                    ]
-                                },
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "CAPS_LOCK to HYPER (SHIFT+COMMAND+OPTION+CONTROL) or ESCAPE (If Alone)",
-                        "enabled": false,
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {}
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_shift",
-                                        "modifiers": ["left_command", "left_control", "left_option"]
+                                        "key_code": "v",
+                                        "modifiers": ["command"]
                                     }
                                 ],
-                                "to_if_alone": [{ "key_code": "escape" }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+,",
-                                "from": {
-                                    "key_code": "comma",
-                                    "modifiers": { "mandatory": ["command", "shift", "option", "control"] }
-                                },
-                                "to": [],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+.",
-                                "from": {
-                                    "key_code": "period",
-                                    "modifiers": { "mandatory": ["command", "shift", "option", "control"] }
-                                },
-                                "to": [],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+/",
-                                    "key_code": "slash",
-                                    "modifiers": { "mandatory": ["command", "shift", "option", "control"] }
-                                },
-                                "to": [],
                                 "type": "basic"
                             }
                         ]
@@ -174,6 +106,53 @@
                         ]
                     },
                     {
+                        "description": "CAPS_LOCK to HYPER (SHIFT+COMMAND+OPTION+CONTROL) or ESCAPE (If Alone)",
+                        "enabled": false,
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": {}
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift",
+                                        "modifiers": ["left_command", "left_control", "left_option"]
+                                    }
+                                ],
+                                "to_if_alone": [{ "key_code": "escape" }],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+,",
+                                "from": {
+                                    "key_code": "comma",
+                                    "modifiers": { "mandatory": ["command", "shift", "option", "control"] }
+                                },
+                                "to": [],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+.",
+                                "from": {
+                                    "key_code": "period",
+                                    "modifiers": { "mandatory": ["command", "shift", "option", "control"] }
+                                },
+                                "to": [],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+/",
+                                    "key_code": "slash",
+                                    "modifiers": { "mandatory": ["command", "shift", "option", "control"] }
+                                },
+                                "to": [],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Swap the left command and left control in some apps",
                         "manipulators": [
                             {
@@ -181,17 +160,17 @@
                                     {
                                         "bundle_identifiers": [
                                             "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.mitchellh\\.ghostty$",
                                             "^com.microsoft.rdc.macos$",
-                                            "^org\\.gnu\\.Emacs$",
-                                            "^io.appmakes.otty"
+                                            "^io\\.appmakes\\.otty$",
+                                            "^com\\.github\\.tty7$",
+                                            "^com\\.muxy\\.app$",
+                                            "^org\\.gnu\\.Emacs$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "from": {
-                                    "key_code": "left_command",
-                                    "modifiers": { "optional": ["any"] }
-                                },
+                                "from": { "key_code": "left_command" },
                                 "to": [{ "key_code": "left_control" }],
                                 "type": "basic"
                             },
@@ -200,17 +179,17 @@
                                     {
                                         "bundle_identifiers": [
                                             "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.mitchellh\\.ghostty$",
                                             "^com.microsoft.rdc.macos$",
-                                            "^org\\.gnu\\.Emacs$",
-                                            "^io.appmakes.otty"
+                                            "^io\\.appmakes\\.otty$",
+                                            "^com\\.github\\.tty7$",
+                                            "^com\\.muxy\\.app$",
+                                            "^org\\.gnu\\.Emacs$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "from": {
-                                    "key_code": "left_control",
-                                    "modifiers": { "optional": ["any"] }
-                                },
+                                "from": { "key_code": "left_control" },
                                 "to": [{ "key_code": "left_command" }],
                                 "type": "basic"
                             }
@@ -327,32 +306,6 @@
                         ]
                     },
                     {
-                        "description": "Shift+Backspace to Super+v: paste",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^org\\.gnu\\.Emacs$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "delete_or_backspace",
-                                    "modifiers": { "mandatory": ["shift"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "v",
-                                        "modifiers": ["command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Change left_command + i/j/k/l to Arrows",
                         "enabled": false,
                         "manipulators": [
@@ -422,22 +375,20 @@
                         ]
                     },
                     {
-                        "description": "Control+v to Super+v: paste",
-                        "enabled": false,
+                        "description": "Shift+Backspace to Super+v: paste",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^net\\.kovidgoyal\\.kitty$",
                                             "^org\\.gnu\\.Emacs$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "v",
-                                    "modifiers": { "mandatory": ["left_control"] }
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": { "mandatory": ["shift"] }
                                 },
                                 "to": [
                                     {
@@ -455,10 +406,16 @@
                 {
                     "identifiers": {
                         "is_keyboard": true,
-                        "product_id": 21317,
-                        "vendor_id": 20785
+                        "product_id": 22289,
+                        "vendor_id": 1155
                     },
-                    "ignore_vendor_events": true
+                    "ignore": true,
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "f10" },
+                            "to": [{ "key_code": "play_or_pause" }]
+                        }
+                    ]
                 },
                 {
                     "identifiers": {
@@ -467,25 +424,7 @@
                         "product_id": 17746,
                         "vendor_id": 20037
                     },
-                    "ignore": false,
-                    "ignore_vendor_events": true
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "product_id": 17746,
-                        "vendor_id": 20037
-                    },
-                    "ignore": true,
-                    "ignore_vendor_events": true
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "product_id": 50504,
-                        "vendor_id": 1133
-                    },
-                    "ignore": true
+                    "ignore": false
                 }
             ],
             "fn_function_keys": [
@@ -519,7 +458,7 @@
                 },
                 {
                     "from": { "key_code": "right_option" },
-                    "to": [{ "key_code": "f20" }]
+                    "to": [{ "key_code": "f18" }]
                 }
             ],
             "virtual_hid_keyboard": {

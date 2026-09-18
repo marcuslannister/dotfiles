@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Sync `karabiner.json` from the live config: Caps Lock tap now sends ⌘+space, Ctrl-V pastes as ⌘V in kitty/muxy/Emacs, the command/control app swap covers Ghostty and tty7, and `right_option` maps to F18 instead of F20. Add the new "Caps Lock to Hyper (Hold) or Backspace (Tap)" complex-modification asset and drop five stale ones no longer present in the live config.
 - Point the `em` alias at `$EMACSC -t` so a terminal Emacs reuses Emacs.app instead of starting `emacs -nw`.
 - Prefer `emacsclient -t` in `git-ediff-tui` when a server is up, falling back to `emacs -nw`. Quitting ediff deletes the client tty frame and does not kill Emacs.app.
 - Trust the `steipete/tap/peekaboo` formula.

@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Pin `em`/`emg` and `git-ediff-tui` to `/tmp/emacs$(id -u)/server` so Homebrew emacsclient finds Emacs.app across TMPDIR mismatches (Kitty included).
 - Make Caps Lock tap send `fn` (Change Input Source) with lazy Hyper so a tap does not post Hyper before the input-source switch.
 - Trust the `neighbor-z/swiftmtp/swiftmtp` formula.
 - Sync `karabiner.json` from the live config: Caps Lock tap now sends ⌘+space, Ctrl-V pastes as ⌘V in kitty/muxy/Emacs, the command/control app swap covers Ghostty and tty7, and `right_option` maps to F18 instead of F20. Add the new "Caps Lock to Hyper (Hold) or Backspace (Tap)" complex-modification asset and drop five stale ones no longer present in the live config.

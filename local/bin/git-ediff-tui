@@ -18,6 +18,8 @@ form="(progn
   (add-hook 'ediff-quit-hook #'git-ediff-tui--on-quit)
   (ediff-files \"$el\" \"$er\"))"
 
+sock=/tmp/emacs$(id -u)/server
+[ -S "$sock" ] && export EMACS_SOCKET_NAME=$sock
 if emacsclient -n -e t >/dev/null 2>&1; then
   exec emacsclient -t --eval "$form"
 else

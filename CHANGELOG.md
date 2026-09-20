@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Swap left Command and left Option on the Apple keyboard.
 - Trust the `abue-ammar/tinycast` tap and `abue-ammar/tinycast/tinycast` cask.
 - Trust the `crmne/tap/spotifast` cask, superseding the `crmne/tap/fastpotify` entry: upstream renamed the project starting at 0.8.0.
 - Pin `em`/`emg` and `git-ediff-tui` to `/tmp/emacs$(id -u)/server` so Homebrew emacsclient finds Emacs.app across TMPDIR mismatches (Kitty included).

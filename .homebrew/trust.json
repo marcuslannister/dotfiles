@@ -23,7 +23,7 @@
   "trustedcasks": [
     "abue-ammar/tinycast/tinycast",
     "barrybarrywu/tap/tutti",
-    "crmne/tap/fastpotify",
+    "crmne/tap/spotifast",
     "eryouhao/tap/graker",
     "neighbor-z/swiftmtp/swiftmtp",
     "supercmdlabs/supercmd/supercmd",

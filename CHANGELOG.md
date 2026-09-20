@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Trust the `abue-ammar/tinycast` tap and `abue-ammar/tinycast/tinycast` cask.
 - Pin `em`/`emg` and `git-ediff-tui` to `/tmp/emacs$(id -u)/server` so Homebrew emacsclient finds Emacs.app across TMPDIR mismatches (Kitty included).
 - Make Caps Lock tap send `fn` (Change Input Source) with lazy Hyper so a tap does not post Hyper before the input-source switch.
 - Trust the `neighbor-z/swiftmtp/swiftmtp` formula.

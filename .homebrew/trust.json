@@ -1,5 +1,6 @@
 {
   "trustedtaps": [
+    "abue-ammar/tinycast",
     "barrybarrywu/tap",
     "d12frosted/emacs-plus",
     "daipeihust/tap",
@@ -20,6 +21,7 @@
     "wez/wezterm"
   ],
   "trustedcasks": [
+    "abue-ammar/tinycast/tinycast",
     "barrybarrywu/tap/tutti",
     "crmne/tap/fastpotify",
     "eryouhao/tap/graker",

@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add a `pil` alias for pi with gpt-5.6-luna.
 - Swap left Command and left Option on the Apple keyboard.
 - Trust the `abue-ammar/tinycast` tap and `abue-ammar/tinycast/tinycast` cask.
 - Trust the `crmne/tap/spotifast` cask, superseding the `crmne/tap/fastpotify` entry: upstream renamed the project starting at 0.8.0.

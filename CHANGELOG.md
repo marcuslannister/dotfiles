@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Give the app-specific Command/Control swap `"modifiers": {"optional": ["any"]}` again, so chords such as ⌃⌘F8 keep both modifiers in kitty, Emacs, Ghostty, and Muxy. Without it Karabiner swapped only the first key pressed, and Raycast never received the hotkey. The live-config sync had dropped this.
 - Add a `pil` alias for pi with gpt-5.6-luna.
 - Swap left Command and left Option on the Apple keyboard.
 - Trust the `abue-ammar/tinycast` tap and `abue-ammar/tinycast/tinycast` cask.

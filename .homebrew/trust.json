@@ -8,6 +8,7 @@
     "eryouhao/tap",
     "farion1231/ccswitch",
     "hakky54/crip",
+    "kris-anderson/netperf",
     "lance0/tap",
     "lihaoyun6/tap",
     "muxy-app/tap",
@@ -31,6 +32,7 @@
     "tw93/tap/kakuku"
   ],
   "trustedformulae": [
+    "kris-anderson/netperf/netperf-enable-demo",
     "lance0/tap/ttl",
     "pouriyajamshidi/tap/tcping",
     "steipete/tap/peekaboo"

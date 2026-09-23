@@ -5,6 +5,7 @@
 - Give the app-specific Command/Control swap `"modifiers": {"optional": ["any"]}` again, so chords such as ⌃⌘F8 keep both modifiers in kitty, Emacs, Ghostty, and Muxy. Without it Karabiner swapped only the first key pressed, and Raycast never received the hotkey. The live-config sync had dropped this.
 - Add a `pis` alias for pi with gpt-6-sol and update `pil` to use gpt-6-luna.
 - Swap left Command and left Option on the Apple keyboard.
+- Trust the `muxy-app/tap/muxy` Homebrew package.
 - Trust the `abue-ammar/tinycast` tap and `abue-ammar/tinycast/tinycast` cask.
 - Trust the `crmne/tap/spotifast` cask, superseding the `crmne/tap/fastpotify` entry: upstream renamed the project starting at 0.8.0.
 - Pin `em`/`emg` and `git-ediff-tui` to `/tmp/emacs$(id -u)/server` so Homebrew emacsclient finds Emacs.app across TMPDIR mismatches (Kitty included).

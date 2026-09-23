@@ -269,9 +269,6 @@ plugins {
     }
     plugin-manager location="zellij:plugin-manager"
     session-manager location="zellij:session-manager"
-    smart-tabs location="file:~/.config/zellij/plugins/zellij-smart-tabs.wasm" {
-        format "{% if short_git_root %}{{ short_git_root }}{% else %}{{ short_dir }}{% endif %}{% if status %} | {{ status }}{% endif %} "
-    }
     status-bar location="zellij:status-bar"
     strider location="zellij:strider"
     tab-bar location="zellij:tab-bar"
@@ -284,7 +281,6 @@ plugins {
 // eg. "file:/path/to/my-plugin.wasm"
 // eg. "https://example.com/my-plugin.wasm"
 load_plugins {
-    smart-tabs
 }
 web_client {
     font "monospace"

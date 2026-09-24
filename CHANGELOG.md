@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- Trust the `stablyai/orca` tap for the Orca cask.
+- Trust the `stablyai/orca` tap and Orca cask.
 - Trust the `kris-anderson/netperf` tap and `kris-anderson/netperf/netperf-enable-demo` formula for flent.
 - Remove the zellij-smart-tabs plugin from the Zellij config, including its `load_plugins` entry.
 - Give the app-specific Command/Control swap `"modifiers": {"optional": ["any"]}` again, so chords such as ⌃⌘F8 keep both modifiers in kitty, Emacs, Ghostty, and Muxy. Without it Karabiner swapped only the first key pressed, and Raycast never received the hotkey. The live-config sync had dropped this.

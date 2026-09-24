@@ -31,6 +31,7 @@
                                     {
                                         "bundle_identifiers": [
                                             "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.stablyai\\.orca$",
                                             "^com\\.muxy\\.app$",
                                             "^org\\.gnu\\.Emacs$"
                                         ],
@@ -156,6 +157,7 @@
                                     {
                                         "bundle_identifiers": [
                                             "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.stablyai\\.orca$",
                                             "^com\\.mitchellh\\.ghostty$",
                                             "^com.microsoft.rdc.macos$",
                                             "^io\\.appmakes\\.otty$",
@@ -178,6 +180,7 @@
                                     {
                                         "bundle_identifiers": [
                                             "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.stablyai\\.orca$",
                                             "^com\\.mitchellh\\.ghostty$",
                                             "^com.microsoft.rdc.macos$",
                                             "^io\\.appmakes\\.otty$",

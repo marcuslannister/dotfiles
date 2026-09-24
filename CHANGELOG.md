@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Apply Kitty's Karabiner mappings to Orca.
 - Trust the `stablyai/orca` tap and Orca cask.
 - Trust the `kris-anderson/netperf` tap and `kris-anderson/netperf/netperf-enable-demo` formula for flent.
 - Remove the zellij-smart-tabs plugin from the Zellij config, including its `load_plugins` entry.

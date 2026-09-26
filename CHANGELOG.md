@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Remove Otty shell integration from `.zshrc`.
 - Point the `pig` alias at grok-4.7.
 - Apply Kitty's Karabiner mappings to Orca.
 - Trust the `stablyai/orca` tap and Orca cask.

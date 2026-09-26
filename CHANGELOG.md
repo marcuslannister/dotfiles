@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Drop the `-s /tmp/emacs$(id -u)/server` pin from the `em` and `emg` aliases. Emacs.app started from the Dock or Raycast puts its server socket in `$TMPDIR`, where plain `emacsclient` looks; the `/tmp` socket came from one launch that inherited `TMPDIR=/private/tmp`.
 - Remove Otty shell integration from `.zshrc`.
 - Point the `pig` alias at grok-4.7.
 - Apply Kitty's Karabiner mappings to Orca.

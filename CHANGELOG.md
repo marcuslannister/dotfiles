@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Point the `pig` alias at grok-4.7.
 - Apply Kitty's Karabiner mappings to Orca.
 - Trust the `stablyai/orca` tap and Orca cask.
 - Trust the `kris-anderson/netperf` tap and `kris-anderson/netperf/netperf-enable-demo` formula for flent.

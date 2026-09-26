@@ -323,9 +323,9 @@ ze-nuke() {
 }
 
 # emacs
-# Emacs.app puts the server in /tmp; Homebrew emacsclient looks in $TMPDIR.
-alias emg="$EMACSC -n -s /tmp/emacs$(id -u)/server"
-alias em="$EMACSC -t -s /tmp/emacs$(id -u)/server"
+# Start Emacs.app from the Dock or Raycast, so its server socket is in $TMPDIR.
+alias emg="$EMACSC -n"
+alias em="$EMACSC -t"
 
 # Coding Agent
 alias cc="claude"

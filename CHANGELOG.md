@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Map only the pi-statusline icons to Fluent Emoji Flat in Kitty's `symbol_map`; other emoji use Apple Color Emoji. Fluent Emoji Flat has no flags, so the old whole-range mapping showed flag pairs such as 🇭🇰 as boxes.
 - Drop the `-s /tmp/emacs$(id -u)/server` pin from the `em` and `emg` aliases. Emacs.app started from the Dock or Raycast puts its server socket in `$TMPDIR`, where plain `emacsclient` looks; the `/tmp` socket came from one launch that inherited `TMPDIR=/private/tmp`.
 - Remove Otty shell integration from `.zshrc`.
 - Point the `pig` alias at grok-4.7.

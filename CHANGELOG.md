@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Map Option+1–9 to Command+1–9 in Karabiner, only when Orca is frontmost, so Option+digit selects Orca tabs.
+- Track Orca keybindings in `.orca/keybindings.json`: Command+1–9 selects a tab and Control+1–9 selects a workspace on macOS.
 - Add Modus Operandi and Modus Vivendi terminal themes for Orca in `.config/orca/themes`, as Warp YAML with the ANSI colors from the Emacs `modus-themes` palette.
 - Map only the pi-statusline icons to Fluent Emoji Flat in Kitty's `symbol_map`; other emoji use Apple Color Emoji. Fluent Emoji Flat has no flags, so the old whole-range mapping showed flag pairs such as 🇭🇰 as boxes.
 - Drop the `-s /tmp/emacs$(id -u)/server` pin from the `em` and `emg` aliases. Emacs.app started from the Dock or Raycast puts its server socket in `$TMPDIR`, where plain `emacsclient` looks; the `/tmp` socket came from one launch that inherited `TMPDIR=/private/tmp`.

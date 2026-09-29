@@ -8,6 +8,174 @@
       ],
       "workspace.selectByIndex": [
         "Ctrl+1"
+      ],
+      "app.forceReload": [
+        "Mod+Shift+R",
+        "Ctrl+Shift+R"
+      ],
+      "worktree.navigateUp": [
+        "Mod+Shift+ArrowUp",
+        "Ctrl+Shift+ArrowUp"
+      ],
+      "worktree.navigateDown": [
+        "Mod+Shift+ArrowDown",
+        "Ctrl+Shift+ArrowDown"
+      ],
+      "workspace.create": [
+        "Mod+N",
+        "Mod+Shift+N",
+        "Ctrl+Shift+N"
+      ],
+      "workspace.rename": [
+        "Mod+Alt+R",
+        "Ctrl+Alt+R"
+      ],
+      "sidebar.explorer.toggle": [
+        "Mod+Shift+E",
+        "Ctrl+Shift+E"
+      ],
+      "sidebar.search.toggle": [
+        "Mod+Shift+F",
+        "Ctrl+Shift+F"
+      ],
+      "sidebar.sourceControl.toggle": [
+        "Mod+Shift+G",
+        "Ctrl+Shift+G"
+      ],
+      "sidebar.ports.toggle": [
+        "Mod+Shift+I",
+        "Ctrl+Shift+I"
+      ],
+      "sidebar.focusWorktreeList": [
+        "Mod+Shift+0",
+        "Ctrl+Shift+0"
+      ],
+      "zoom.in": [
+        "Mod+Equal",
+        "Mod+Shift+Plus",
+        "Mod+NumpadAdd",
+        "Ctrl+Shift+Plus"
+      ],
+      "tab.newAgent": [
+        "Mod+Alt+T",
+        "Ctrl+Alt+T"
+      ],
+      "tab.newBrowser": [
+        "Mod+Shift+B",
+        "Ctrl+Shift+B"
+      ],
+      "tab.newSimulator": [
+        "Mod+Alt+Shift+E",
+        "Ctrl+Alt+Shift+E"
+      ],
+      "tab.newMarkdown": [
+        "Mod+Shift+M",
+        "Ctrl+Shift+M"
+      ],
+      "tab.openMarkdown": [
+        "Mod+Shift+O",
+        "Ctrl+Shift+O"
+      ],
+      "tab.closeAll": [
+        "Mod+Alt+W",
+        "Ctrl+Alt+W"
+      ],
+      "tab.reopenClosed": [
+        "Mod+Shift+T",
+        "Ctrl+Shift+T"
+      ],
+      "tab.nextSameType": [
+        "Mod+Alt+BracketRight",
+        "Ctrl+Alt+BracketRight"
+      ],
+      "tab.previousSameType": [
+        "Mod+Alt+BracketLeft",
+        "Ctrl+Alt+BracketLeft"
+      ],
+      "tab.nextAllTypes": [
+        "Mod+Shift+BracketRight",
+        "Ctrl+Shift+BracketRight"
+      ],
+      "tab.previousAllTypes": [
+        "Mod+Shift+BracketLeft",
+        "Ctrl+Shift+BracketLeft"
+      ],
+      "browser.find": [
+        "Mod+F",
+        "Ctrl+F"
+      ],
+      "browser.back": [
+        "Mod+BracketLeft",
+        "Ctrl+BracketLeft"
+      ],
+      "browser.forward": [
+        "Mod+BracketRight",
+        "Ctrl+BracketRight"
+      ],
+      "browser.reload": [
+        "Mod+R",
+        "Ctrl+R"
+      ],
+      "browser.hardReload": [
+        "Mod+Shift+R",
+        "Ctrl+Shift+R"
+      ],
+      "browser.focusAddressBar": [
+        "Mod+L",
+        "Ctrl+L"
+      ],
+      "browser.grabElement": [
+        "Mod+C",
+        "Ctrl+C"
+      ],
+      "editor.find": [
+        "Mod+F",
+        "Ctrl+F"
+      ],
+      "editor.replace": [
+        "Mod+Alt+F",
+        "Ctrl+Alt+F"
+      ],
+      "editor.save": [
+        "Mod+S",
+        "Ctrl+S"
+      ],
+      "editor.markdownPreview": [
+        "Mod+Shift+V",
+        "Ctrl+Shift+V"
+      ],
+      "editor.copyContext": [
+        "Mod+Alt+C",
+        "Ctrl+Alt+C"
+      ],
+      "editor.addReviewNote": [
+        "Mod+Shift+A",
+        "Ctrl+Shift+A"
+      ],
+      "fileExplorer.undo": [
+        "Mod+Z",
+        "Ctrl+Z"
+      ],
+      "fileExplorer.redo": [
+        "Mod+Shift+Z",
+        "Ctrl+Shift+Z"
+      ],
+      "fileExplorer.copyPath": [
+        "Mod+Alt+C",
+        "Ctrl+Alt+C"
+      ],
+      "fileExplorer.copyRelativePath": [
+        "Mod+Alt+Shift+C",
+        "Ctrl+Alt+Shift+C"
+      ],
+      "fileExplorer.delete": [
+        "Mod+Backspace",
+        "Delete",
+        "Ctrl+Backspace"
+      ],
+      "settings.search": [
+        "Mod+F",
+        "Ctrl+F"
       ]
     },
     "linux": {},

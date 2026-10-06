@@ -1,0 +1,11 @@
+# nix-config installs gcc15 system-wide. Its `cc` comes before /usr/bin on
+# PATH and cannot link against the macOS SDK, so Cargo uses Apple clang.
+[target.aarch64-apple-darwin]
+linker = "/usr/bin/clang"
+
+[target.x86_64-apple-darwin]
+linker = "/usr/bin/clang"
+
+[env]
+CC = "/usr/bin/clang"
+CXX = "/usr/bin/clang++"

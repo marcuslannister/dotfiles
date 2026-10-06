@@ -232,6 +232,7 @@ alias wb='writebackup.sh'
 # croc
 alias crre='croc relay'
 alias cr='croc --relay "pve-vm16.lan:9009" send'
+alias crnl='croc --relay "pve-vm16.lan:9009" send --no-local'
 
 # curl
 alias cuso='curl -so /dev/null'

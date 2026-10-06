@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add `.cargo/config.toml`, which makes Cargo link and compile C/C++ with Apple clang on macOS. The `gcc15` from nix-config puts its own `cc` before `/usr/bin` on PATH, and that `cc` cannot link against the macOS SDK (`ld: library not found for -liconv`).
 - Add Control alternatives to 41 Orca Command shortcuts in `.orca/keybindings.json`, so physical Control works as Command outside the terminal. Skip plain Control chords for global and tab shortcuts (W, R, E, B, P, N, L, T, J, and zoom), so the shell keeps them.
 - Map Option+1–9 to Command+1–9 in Karabiner, only when Orca is frontmost, so Option+digit selects Orca tabs.
 - Track Orca keybindings in `.orca/keybindings.json`: Command+1–9 selects a tab and Control+1–9 selects a workspace on macOS.

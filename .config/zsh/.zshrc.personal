@@ -333,6 +333,7 @@ alias cc="claude"
 alias ccc="cc --continue"
 alias ccd="cc --dangerously-skip-permissions"
 alias ccdc="cc --dangerously-skip-permissions --continue"
+alias ccsd="ccd --model sonnet --effort high"
 
 alias occ="onecli run --agent default -- claude"
 alias occd="occ --dangerously-skip-permissions"

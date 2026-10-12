@@ -339,6 +339,7 @@
                                             "^io\\.appmakes\\.otty$",
                                             "^com\\.github\\.tty7$",
                                             "^com\\.muxy\\.app$",
+                                            "^sh\\.paseo\\.desktop$",
                                             "^org\\.gnu\\.Emacs$"
                                         ],
                                         "type": "frontmost_application_if"
@@ -362,6 +363,7 @@
                                             "^io\\.appmakes\\.otty$",
                                             "^com\\.github\\.tty7$",
                                             "^com\\.muxy\\.app$",
+                                            "^sh\\.paseo\\.desktop$",
                                             "^org\\.gnu\\.Emacs$"
                                         ],
                                         "type": "frontmost_application_if"

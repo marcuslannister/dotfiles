@@ -9,6 +9,9 @@ setopt vi
 #unset EQUALS
 unsetopt EQUALS
 
+# let `>` overwrite files again; Zim's environment module sets NO_CLOBBER
+setopt CLOBBER
+
 #k# search history backward for entry beginning with typed text
 #bind2maps emacs viins       -- -s '^p' history-beginning-search-backward-end
 

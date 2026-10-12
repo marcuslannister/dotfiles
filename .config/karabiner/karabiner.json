@@ -209,6 +209,7 @@
                                             "^net\\.kovidgoyal\\.kitty$",
                                             "^com\\.stablyai\\.orca$",
                                             "^com\\.muxy\\.app$",
+                                            "^sh\\.paseo\\.desktop$",
                                             "^org\\.gnu\\.Emacs$"
                                         ],
                                         "type": "frontmost_application_if"

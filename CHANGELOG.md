@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Turn `CLOBBER` back on in `.zshrc.personal`, so `>` overwrites a file again. Zim's `environment` module sets `NO_CLOBBER`.
 - Add a `ccsd` alias for `ccd` with the Sonnet model and high effort (`--model sonnet --effort high`).
 - Add a `crnl` alias that sends with croc through the configured relay and `--no-local`, so the transfer does not also open a local relay.
 - Add `.cargo/config.toml`, which makes Cargo link and compile C/C++ with Apple clang on macOS. The `gcc15` from nix-config puts its own `cc` before `/usr/bin` on PATH, and that `cc` cannot link against the macOS SDK (`ld: library not found for -liconv`).

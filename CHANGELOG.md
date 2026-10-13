@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Select Orca tabs by index with Command+Option+1–9 instead of Command+1–9 in `.orca/keybindings.json`, matching the live Orca config.
 - Track the BetterTouchTool Default preset in `.config/bettertouchtool/Default.bttpreset` (import it in BTT; it is not applied on rebuild). It adds Trackpad `1 Finger Tap` → `Left Click (At Current Mouse Position)`, so double-tap, hold, and drag selects text by character. It needs macOS Tap to click and Use trackpad for dragging turned off.
 - Apply the Karabiner left Command/Control swap and the Control+V paste mapping to Paseo, as in kitty and Orca.
 - Turn `CLOBBER` back on in `.zshrc.personal`, so `>` overwrites a file again. Zim's `environment` module sets `NO_CLOBBER`.

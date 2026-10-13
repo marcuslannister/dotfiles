@@ -4,7 +4,7 @@
   "platforms": {
     "darwin": {
       "tab.selectByIndex": [
-        "Mod+1"
+        "Mod+Alt+1"
       ],
       "workspace.selectByIndex": [
         "Ctrl+1"

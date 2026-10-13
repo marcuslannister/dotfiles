@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add `local/bin/btt-export`, which writes the live BetterTouchTool preset (default name `Main`) to `.config/bettertouchtool/Default.bttpreset`. BTT Sync keeps the Macs in step; the file is the git snapshot. Restore the Hyper+9 (Move Window to Next Monitor), Meh+9 (Next), and Meh+8 (Play or Pause) shortcuts in the preset.
 - Select Orca tabs by index with Command+Option+1–9 instead of Command+1–9 in `.orca/keybindings.json`, matching the live Orca config.
 - Track the BetterTouchTool Default preset in `.config/bettertouchtool/Default.bttpreset` (import it in BTT; it is not applied on rebuild). It adds Trackpad `1 Finger Tap` → `Left Click (At Current Mouse Position)`, so double-tap, hold, and drag selects text by character. It needs macOS Tap to click and Use trackpad for dragging turned off.
 - Apply the Karabiner left Command/Control swap and the Control+V paste mapping to Paseo, as in kitty and Orca.

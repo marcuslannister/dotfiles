@@ -21,9 +21,20 @@ fi
 tmp=$(mktemp -d)
 trap 'rm -f "$tmp/preset.bttpreset"; rmdir "$tmp"' EXIT
 osascript -e "tell application \"BetterTouchTool\" to export_preset \"$name\" outputPath \"$tmp/preset.bttpreset\"" >/dev/null
+# BTT can answer "done" before the file is written.
+i=0
+until jq -e '.BTTPresetUUID' "$tmp/preset.bttpreset" >/dev/null 2>&1 || [ $i -ge 20 ]; do
+  sleep 0.25
+  i=$((i + 1))
+done
 if ! jq -e '.BTTPresetUUID' "$tmp/preset.bttpreset" >/dev/null 2>&1; then
   echo "btt-export: export of '$name' failed" >&2
   exit 1
+fi
+# BTT makes a new preset UUID on every export; keep the old one so git sees only real changes.
+if old=$(jq -er '.BTTPresetUUID' "$out" 2>/dev/null); then
+  sed "s/^\(  \"BTTPresetUUID\" : \"\)[^\"]*/\1$old/" "$tmp/preset.bttpreset" >"$tmp/keep.bttpreset"
+  mv "$tmp/keep.bttpreset" "$tmp/preset.bttpreset"
 fi
 mv "$tmp/preset.bttpreset" "$out"
 echo "btt-export: wrote $out"

@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# Usage: btt-export [PRESET]
+#
+# Writes the live BetterTouchTool preset PRESET (default: Main) to
+# ~/dotfiles/.config/bettertouchtool/Default.bttpreset. BTT Sync keeps the Macs
+# in step; this file is only the git snapshot. BTT exports by name, so the name
+# must belong to exactly one preset.
+
+set -eu
+
+name=${1:-Main}
+out="$HOME/dotfiles/.config/bettertouchtool/Default.bttpreset"
+
+count=$(osascript -e "tell application \"BetterTouchTool\" to get_preset_details \"$name\"" | jq length)
+if [ "$count" != 1 ]; then
+  echo "btt-export: need exactly one preset named '$name', found $count" >&2
+  exit 1
+fi
+
+tmp=$(mktemp -d)
+trap 'rm -f "$tmp/preset.bttpreset"; rmdir "$tmp"' EXIT
+osascript -e "tell application \"BetterTouchTool\" to export_preset \"$name\" outputPath \"$tmp/preset.bttpreset\"" >/dev/null
+if ! jq -e '.BTTPresetUUID' "$tmp/preset.bttpreset" >/dev/null 2>&1; then
+  echo "btt-export: export of '$name' failed" >&2
+  exit 1
+fi
+mv "$tmp/preset.bttpreset" "$out"
+echo "btt-export: wrote $out"

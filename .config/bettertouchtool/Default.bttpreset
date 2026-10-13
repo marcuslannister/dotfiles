@@ -1,7 +1,7 @@
 {
-  "BTTPresetName" : "Default",
-  "BTTPresetColor" : "0.000000, 252.817048, 255.000000, 255.000000",
-  "BTTPresetUUID" : "680C7CFB-587B-4E19-A713-0BC2F178991A",
+  "BTTPresetName" : "Main",
+  "BTTPresetColor" : "242.760000, 94.676400, 144.037600, 255.000000",
+  "BTTPresetUUID" : "917930C5-A91A-45EA-8388-E36B235E9F10",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "BT.G",
@@ -12,12 +12,11 @@
       },
       "BTTTriggers" : [
         {
-          "BTTLastUpdatedAt" : 1774321534.83517,
+          "BTTLastUpdatedAt" : 1791894798.939754,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTUUID" : "4E3D3C8B-CECF-41AB-A9F5-485738DBF33B",
           "BTTAdditionalConfiguration" : "1966123",
-          "BTTShortcutScope" : 0,
           "BTTShortcutKeyboardType" : 65791,
           "BTTTriggerOnDown" : 1,
           "BTTLayoutIndependentChar" : "w",
@@ -28,20 +27,19 @@
           "BTTAutoAdaptToKeyboardLayout" : 0,
           "BTTActionsToExecute" : [
             {
-              "BTTLastUpdatedAt" : 1739764295.5418801,
+              "BTTLastUpdatedAt" : 1791894798.9399581,
               "BTTTriggerParentUUID" : "4E3D3C8B-CECF-41AB-A9F5-485738DBF33B",
               "BTTIsPureAction" : true,
               "BTTUUID" : "EF71980E-C19F-4A09-9454-A3240450E1C0",
               "BTTPredefinedActionType" : 264,
               "BTTPredefinedActionName" : "",
-              "BTTLayoutIndependentActionChar" : "SPACE",
               "BTTShortcutToSend" : "56,55,49",
               "BTTOrder" : 10
             }
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1791881647.59179,
+          "BTTLastUpdatedAt" : 1791894799.165091,
           "BTTTriggerType" : 207,
           "BTTTriggerTypeDescriptionReadOnly" : "1 Finger Tap",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -52,7 +50,7 @@
           "BTTOrder" : 0
         },
         {
-          "BTTLastUpdatedAt" : 1736233481.1655931,
+          "BTTLastUpdatedAt" : 1791894799.406641,
           "BTTTriggerType" : 103,
           "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Swipe Down",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -64,7 +62,17 @@
           "BTTOrder" : 0
         },
         {
-          "BTTLastUpdatedAt" : 1736233481.1656229,
+          "BTTLastUpdatedAt" : 1791894799.6110539,
+          "BTTTriggerType" : 112,
+          "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Click",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTUUID" : "0CC4B264-C94D-4471-993E-E56C2E8B7C80",
+          "BTTPredefinedActionType" : 1,
+          "BTTPredefinedActionName" : "Middle Click (At Current Mouse Position)",
+          "BTTOrder" : 1
+        },
+        {
+          "BTTLastUpdatedAt" : 1791894799.820365,
           "BTTTriggerType" : 197,
           "BTTTriggerTypeDescriptionReadOnly" : "Pinch With Thumb And 2 Fingers",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -72,17 +80,19 @@
           "BTTOrder" : 1
         },
         {
-          "BTTLastUpdatedAt" : 1736233594.198313,
-          "BTTTriggerType" : 112,
-          "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Click",
+          "BTTLastUpdatedAt" : 1791894800.0349422,
+          "BTTTriggerType" : 100,
+          "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Swipe Left",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTUUID" : "0CC4B264-C94D-4471-993E-E56C2E8B7C80",
-          "BTTPredefinedActionType" : 1,
-          "BTTPredefinedActionName" : "Middle Click (At Current Mouse Position)",
+          "BTTUUID" : "1307643F-2E8E-48FC-BEEE-55B9FBCFA428",
+          "BTTPredefinedActionType" : 19,
+          "BTTPredefinedActionName" : "Maximize Window Left Half",
+          "BTTAutoAdaptActionToKeyboardLayout" : true,
+          "BTTGenericActionConfig" : "autoAdapt",
           "BTTOrder" : 2
         },
         {
-          "BTTLastUpdatedAt" : 1761542054.695873,
+          "BTTLastUpdatedAt" : 1791894800.265357,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTUUID" : "4763FF76-350D-458F-AFA0-821B4A420396",
@@ -97,7 +107,7 @@
           "BTTAutoAdaptToKeyboardLayout" : 0,
           "BTTActionsToExecute" : [
             {
-              "BTTLastUpdatedAt" : 1761542087.7545691,
+              "BTTLastUpdatedAt" : 1791894800.2655339,
               "BTTTriggerParentUUID" : "4763FF76-350D-458F-AFA0-821B4A420396",
               "BTTIsPureAction" : true,
               "BTTUUID" : "203E7C77-87CD-4488-BD87-8ABE6B23D7BB",
@@ -110,19 +120,7 @@
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1736233481.165628,
-          "BTTTriggerType" : 100,
-          "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Swipe Left",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTUUID" : "1307643F-2E8E-48FC-BEEE-55B9FBCFA428",
-          "BTTPredefinedActionType" : 19,
-          "BTTPredefinedActionName" : "Maximize Window Left Half",
-          "BTTAutoAdaptActionToKeyboardLayout" : true,
-          "BTTGenericActionConfig" : "autoAdapt",
-          "BTTOrder" : 3
-        },
-        {
-          "BTTLastUpdatedAt" : 1736233481.165571,
+          "BTTLastUpdatedAt" : 1791894800.4821858,
           "BTTTriggerType" : 101,
           "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Swipe Right",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -131,28 +129,28 @@
           "BTTPredefinedActionName" : "Maximize Window Right Half",
           "BTTAutoAdaptActionToKeyboardLayout" : true,
           "BTTGenericActionConfig" : "autoAdapt",
-          "BTTOrder" : 4
+          "BTTOrder" : 3
         },
         {
-          "BTTLastUpdatedAt" : 1736233481.165581,
+          "BTTLastUpdatedAt" : 1791894800.7132061,
           "BTTTriggerType" : 182,
           "BTTTriggerTypeDescriptionReadOnly" : "Corner Click Top Left",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
           "BTTUUID" : "6B58861D-3787-415D-8EBB-6D4F1F93AA8F",
           "BTTPredefinedActionType" : 151,
           "BTTPredefinedActionName" : "Move Window One Space or Desktop Left",
-          "BTTOrder" : 5
+          "BTTOrder" : 4
         },
         {
-          "BTTLastUpdatedAt" : 1736233481.1656098,
+          "BTTLastUpdatedAt" : 1791894800.9304252,
           "BTTTriggerType" : 104,
           "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Tap",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
           "BTTUUID" : "6A5B81FB-A665-4B59-AD25-87B5FB8141BD",
-          "BTTOrder" : 6,
+          "BTTOrder" : 5,
           "BTTActionsToExecute" : [
             {
-              "BTTLastUpdatedAt" : 1711193288.631978,
+              "BTTLastUpdatedAt" : 1791894800.9306021,
               "BTTTriggerParentUUID" : "6A5B81FB-A665-4B59-AD25-87B5FB8141BD",
               "BTTIsPureAction" : true,
               "BTTUUID" : "16470AEE-792D-406F-91D5-7ECC3A9E6AA8",
@@ -165,7 +163,7 @@
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1736233494.468699,
+          "BTTLastUpdatedAt" : 1791894801.143893,
           "BTTTriggerType" : 121,
           "BTTTriggerTypeDescriptionReadOnly" : "4 Finger Click",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -173,7 +171,7 @@
           "BTTOrder" : 7,
           "BTTActionsToExecute" : [
             {
-              "BTTLastUpdatedAt" : 1736233526.4669099,
+              "BTTLastUpdatedAt" : 1791894801.1440811,
               "BTTTriggerParentUUID" : "7AAA39E3-8D03-4605-B7F0-A46F87F30C1A",
               "BTTIsPureAction" : true,
               "BTTUUID" : "326CF3B7-22B7-47A5-9570-1AD895C831A7",
@@ -182,6 +180,84 @@
               "BTTLayoutIndependentActionChar" : "w",
               "BTTShortcutToSend" : "55,13",
               "BTTOrder" : 3
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1791894186.537812,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "D0AA3C7A-0967-45B2-AA53-A22CC7F96DA3",
+          "BTTAdditionalConfiguration" : "1966123",
+          "BTTShortcutKeyboardType" : 65791,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "9",
+          "BTTShortcutKeyCode" : 25,
+          "BTTShortcutAdvancedModifierKeys" : "1966123",
+          "BTTShortcutModifierKeys" : 1966080,
+          "BTTOrder" : 20,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1791894186.538341,
+              "BTTTriggerParentUUID" : "D0AA3C7A-0967-45B2-AA53-A22CC7F96DA3",
+              "BTTIsPureAction" : true,
+              "BTTUUID" : "1C44823C-D7CB-461C-9B72-97ADDD663010",
+              "BTTPredefinedActionType" : 47,
+              "BTTPredefinedActionName" : "Move Window to Next Monitor",
+              "BTTOrder" : 0
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1791894186.665338,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "E6825593-8B5F-4B8D-A80A-2E70A65051AF",
+          "BTTAdditionalConfiguration" : "1835049",
+          "BTTShortcutKeyboardType" : 65791,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "9",
+          "BTTShortcutKeyCode" : 25,
+          "BTTShortcutAdvancedModifierKeys" : "1835049",
+          "BTTShortcutModifierKeys" : 1835008,
+          "BTTOrder" : 21,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1791894186.6657381,
+              "BTTTriggerParentUUID" : "E6825593-8B5F-4B8D-A80A-2E70A65051AF",
+              "BTTIsPureAction" : true,
+              "BTTUUID" : "27E016E1-C913-4204-9880-232B04F59870",
+              "BTTPredefinedActionType" : 27,
+              "BTTPredefinedActionName" : "Next",
+              "BTTOrder" : 0
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1791894186.7882838,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "3E1A296B-985A-402F-A40D-68F1A24A062C",
+          "BTTAdditionalConfiguration" : "1835049",
+          "BTTShortcutKeyboardType" : 65791,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "8",
+          "BTTShortcutKeyCode" : 28,
+          "BTTShortcutAdvancedModifierKeys" : "1835049",
+          "BTTShortcutModifierKeys" : 1835008,
+          "BTTOrder" : 22,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1791894186.7884841,
+              "BTTTriggerParentUUID" : "3E1A296B-985A-402F-A40D-68F1A24A062C",
+              "BTTIsPureAction" : true,
+              "BTTUUID" : "9ECDC2AC-910E-40D6-A26E-A19030D95C59",
+              "BTTPredefinedActionType" : 23,
+              "BTTPredefinedActionName" : "Play or Pause",
+              "BTTOrder" : 0
             }
           ]
         }
@@ -199,16 +275,6 @@
       "BTTAppBundleIdentifier" : "com.apple.finder",
       "BTTAppName" : "Finder",
       "BTTAppAutoInvertIcon" : 1,
-      "BTTTriggers" : [
-
-      ]
-    },
-    {
-      "BTTAppBundleIdentifier" : "org.mozilla.firefox",
-      "BTTAppName" : "Firefox",
-      "BTTAppAutoInvertIcon" : 1,
-      "BTTAppProcessMatchMode" : 2,
-      "BTTAppProcessName" : "Firefox",
       "BTTTriggers" : [
 
       ]

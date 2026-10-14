@@ -12,7 +12,18 @@
       },
       "BTTTriggers" : [
         {
-          "BTTLastUpdatedAt" : 1791894798.939754,
+          "BTTLastUpdatedAt" : 1791939511.789217,
+          "BTTTriggerType" : 173,
+          "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTUUID" : "439C07F9-4A39-48B9-B16F-ABED7FC46B2F",
+          "BTTPredefinedActionType" : 4,
+          "BTTPredefinedActionName" : "Right Click (At Current Mouse Position)",
+          "BTTNotes" : "two-finger tap right click",
+          "BTTOrder" : 0
+        },
+        {
+          "BTTLastUpdatedAt" : 1791939077.2925029,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTUUID" : "4E3D3C8B-CECF-41AB-A9F5-485738DBF33B",
@@ -27,7 +38,7 @@
           "BTTAutoAdaptToKeyboardLayout" : 0,
           "BTTActionsToExecute" : [
             {
-              "BTTLastUpdatedAt" : 1791894798.9399581,
+              "BTTLastUpdatedAt" : 1791939077.2934909,
               "BTTTriggerParentUUID" : "4E3D3C8B-CECF-41AB-A9F5-485738DBF33B",
               "BTTIsPureAction" : true,
               "BTTUUID" : "EF71980E-C19F-4A09-9454-A3240450E1C0",
@@ -39,7 +50,7 @@
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1791894799.165091,
+          "BTTLastUpdatedAt" : 1791939077.294059,
           "BTTTriggerType" : 207,
           "BTTTriggerTypeDescriptionReadOnly" : "1 Finger Tap",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -50,7 +61,7 @@
           "BTTOrder" : 0
         },
         {
-          "BTTLastUpdatedAt" : 1791894799.406641,
+          "BTTLastUpdatedAt" : 1791939077.294354,
           "BTTTriggerType" : 103,
           "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Swipe Down",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -62,7 +73,7 @@
           "BTTOrder" : 0
         },
         {
-          "BTTLastUpdatedAt" : 1791894799.6110539,
+          "BTTLastUpdatedAt" : 1791939077.2946758,
           "BTTTriggerType" : 112,
           "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Click",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -72,7 +83,7 @@
           "BTTOrder" : 1
         },
         {
-          "BTTLastUpdatedAt" : 1791894799.820365,
+          "BTTLastUpdatedAt" : 1791939077.29496,
           "BTTTriggerType" : 197,
           "BTTTriggerTypeDescriptionReadOnly" : "Pinch With Thumb And 2 Fingers",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -80,7 +91,7 @@
           "BTTOrder" : 1
         },
         {
-          "BTTLastUpdatedAt" : 1791894800.0349422,
+          "BTTLastUpdatedAt" : 1791939077.2952409,
           "BTTTriggerType" : 100,
           "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Swipe Left",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -92,7 +103,7 @@
           "BTTOrder" : 2
         },
         {
-          "BTTLastUpdatedAt" : 1791894800.265357,
+          "BTTLastUpdatedAt" : 1791939077.2955189,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTUUID" : "4763FF76-350D-458F-AFA0-821B4A420396",
@@ -107,7 +118,7 @@
           "BTTAutoAdaptToKeyboardLayout" : 0,
           "BTTActionsToExecute" : [
             {
-              "BTTLastUpdatedAt" : 1791894800.2655339,
+              "BTTLastUpdatedAt" : 1791939077.295994,
               "BTTTriggerParentUUID" : "4763FF76-350D-458F-AFA0-821B4A420396",
               "BTTIsPureAction" : true,
               "BTTUUID" : "203E7C77-87CD-4488-BD87-8ABE6B23D7BB",
@@ -120,7 +131,7 @@
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1791894800.4821858,
+          "BTTLastUpdatedAt" : 1791939077.2963409,
           "BTTTriggerType" : 101,
           "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Swipe Right",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -132,7 +143,7 @@
           "BTTOrder" : 3
         },
         {
-          "BTTLastUpdatedAt" : 1791894800.7132061,
+          "BTTLastUpdatedAt" : 1791939077.2966361,
           "BTTTriggerType" : 182,
           "BTTTriggerTypeDescriptionReadOnly" : "Corner Click Top Left",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -142,7 +153,7 @@
           "BTTOrder" : 4
         },
         {
-          "BTTLastUpdatedAt" : 1791894800.9304252,
+          "BTTLastUpdatedAt" : 1791939077.297015,
           "BTTTriggerType" : 104,
           "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Tap",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -150,7 +161,7 @@
           "BTTOrder" : 5,
           "BTTActionsToExecute" : [
             {
-              "BTTLastUpdatedAt" : 1791894800.9306021,
+              "BTTLastUpdatedAt" : 1791939077.297379,
               "BTTTriggerParentUUID" : "6A5B81FB-A665-4B59-AD25-87B5FB8141BD",
               "BTTIsPureAction" : true,
               "BTTUUID" : "16470AEE-792D-406F-91D5-7ECC3A9E6AA8",
@@ -163,7 +174,7 @@
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1791894801.143893,
+          "BTTLastUpdatedAt" : 1791939077.2978458,
           "BTTTriggerType" : 121,
           "BTTTriggerTypeDescriptionReadOnly" : "4 Finger Click",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -171,7 +182,7 @@
           "BTTOrder" : 7,
           "BTTActionsToExecute" : [
             {
-              "BTTLastUpdatedAt" : 1791894801.1440811,
+              "BTTLastUpdatedAt" : 1791939077.2982211,
               "BTTTriggerParentUUID" : "7AAA39E3-8D03-4605-B7F0-A46F87F30C1A",
               "BTTIsPureAction" : true,
               "BTTUUID" : "326CF3B7-22B7-47A5-9570-1AD895C831A7",
@@ -184,7 +195,7 @@
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1791894186.537812,
+          "BTTLastUpdatedAt" : 1791939077.298671,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTUUID" : "D0AA3C7A-0967-45B2-AA53-A22CC7F96DA3",
@@ -199,7 +210,7 @@
           "BTTAutoAdaptToKeyboardLayout" : 0,
           "BTTActionsToExecute" : [
             {
-              "BTTLastUpdatedAt" : 1791894186.538341,
+              "BTTLastUpdatedAt" : 1791939077.2990069,
               "BTTTriggerParentUUID" : "D0AA3C7A-0967-45B2-AA53-A22CC7F96DA3",
               "BTTIsPureAction" : true,
               "BTTUUID" : "1C44823C-D7CB-461C-9B72-97ADDD663010",
@@ -210,7 +221,7 @@
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1791894186.665338,
+          "BTTLastUpdatedAt" : 1791939077.2994111,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTUUID" : "E6825593-8B5F-4B8D-A80A-2E70A65051AF",
@@ -225,7 +236,7 @@
           "BTTAutoAdaptToKeyboardLayout" : 0,
           "BTTActionsToExecute" : [
             {
-              "BTTLastUpdatedAt" : 1791894186.6657381,
+              "BTTLastUpdatedAt" : 1791939077.299757,
               "BTTTriggerParentUUID" : "E6825593-8B5F-4B8D-A80A-2E70A65051AF",
               "BTTIsPureAction" : true,
               "BTTUUID" : "27E016E1-C913-4204-9880-232B04F59870",
@@ -236,7 +247,7 @@
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1791894186.7882838,
+          "BTTLastUpdatedAt" : 1791939077.3001719,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTUUID" : "3E1A296B-985A-402F-A40D-68F1A24A062C",
@@ -251,7 +262,7 @@
           "BTTAutoAdaptToKeyboardLayout" : 0,
           "BTTActionsToExecute" : [
             {
-              "BTTLastUpdatedAt" : 1791894186.7884841,
+              "BTTLastUpdatedAt" : 1791939077.300524,
               "BTTTriggerParentUUID" : "3E1A296B-985A-402F-A40D-68F1A24A062C",
               "BTTIsPureAction" : true,
               "BTTUUID" : "9ECDC2AC-910E-40D6-A26E-A19030D95C59",

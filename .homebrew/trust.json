@@ -34,6 +34,7 @@
     "tw93/tap/kakuku"
   ],
   "trustedformulae": [
+    "darrylmorley/whatcable/whatcable-cli",
     "kris-anderson/netperf/netperf-enable-demo",
     "lance0/tap/ttl",
     "pouriyajamshidi/tap/tcping",

@@ -2,6 +2,11 @@ onboarding = false
 [keys]
 prefix = "ctrl+e"
 remote_image_paste = "alt+v"
+focus_pane_up = "prefix+u"
+navigate_workspace_down = "j"
+navigate_workspace_up = "k"
+navigate_pane_down = "down"
+navigate_pane_up = "up"
 
 [theme]
 name = "catppuccin-latte"
@@ -19,3 +24,13 @@ key = "prefix+k"
 type = "plugin_action"
 command = "herdr-bar.open"
 description = "command bar"
+
+[[keys.command]]
+key = "prefix+t"
+type = "plugin_action"
+command = "herdr-tsk.open-board"
+
+[[keys.command]]
+key = "prefix+a"
+type = "plugin_action"
+command = "herdr-tsk.quick-capture"

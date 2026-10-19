@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Rebind herdr navigation in `.config/herdr/config.toml`: `prefix+u` focuses the pane above (`prefix+k` opens the command bar), and `j`/`k` select the workspace in navigate mode. Navigate-mode pane up and down move to the arrow keys.
+- Bind herdr `prefix+t` to `herdr-tsk.open-board` and `prefix+a` to `herdr-tsk.quick-capture` (tsk plugin actions).
 - Bind herdr `prefix+k` to the `herdr-bar.open` plugin action (command bar) in `.config/herdr/config.toml`.
 - Trust the `darrylmorley/whatcable/whatcable-cli` formula.
 - Add a BetterTouchTool Trackpad `2 Finger Tap` → `Right Click` trigger to the preset; macOS two-finger tap needs Tap to click, which is off.

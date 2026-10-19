@@ -13,3 +13,9 @@ delivery = "terminal"
 [ui]
 show_agent_labels_on_pane_borders = true
 status_indicators = "symbols"
+
+[[keys.command]]
+key = "prefix+k"
+type = "plugin_action"
+command = "herdr-bar.open"
+description = "command bar"

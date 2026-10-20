@@ -3,6 +3,7 @@ onboarding = false
 prefix = "ctrl+e"
 remote_image_paste = "alt+v"
 focus_pane_up = "prefix+u"
+switch_tab = ["prefix+1..9", "alt+1..9"]
 navigate_workspace_down = "j"
 navigate_workspace_up = "k"
 navigate_pane_down = "down"

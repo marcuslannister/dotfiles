@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add `.hammerspoon/init.lua`, which selects English (ABC) each time an app becomes active, so every app starts in English. It also loads `hs.ipc` for the `hs` CLI and starts Hammerspoon at login.
 - Bind herdr `alt+h` to the previous tab and `alt+l` to the next tab (`previous_tab`, `next_tab`) in `.config/herdr/config.toml`. Needs the terminal to send Option as Alt.
 - Bind herdr `alt+1..9` to switch to tab 1–9 (`switch_tab`) in `.config/herdr/config.toml`; `prefix+1..9` still works. Needs the terminal to send Option as Alt.
 - Rebind herdr navigation in `.config/herdr/config.toml`: `prefix+u` focuses the pane above (`prefix+k` opens the command bar), and `j`/`k` select the workspace in navigate mode. Navigate-mode pane up and down move to the arrow keys.

@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Point the `cr` and `crnl` aliases at `vm16.lan:9009` after the relay hostname change.
 - Bind herdr `alt+k` to the previous agent and `alt+j` to the next agent (`previous_agent`, `next_agent`) in `.config/herdr/config.toml`. Needs the terminal to send Option as Alt.
 - Add `.hammerspoon/init.lua`, which selects English (ABC) each time an app becomes active, so every app starts in English. It also loads `hs.ipc` for the `hs` CLI and starts Hammerspoon at login.
 - Bind herdr `alt+h` to the previous tab and `alt+l` to the next tab (`previous_tab`, `next_tab`) in `.config/herdr/config.toml`. Needs the terminal to send Option as Alt.

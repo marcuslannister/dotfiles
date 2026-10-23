@@ -1,7 +1,6 @@
 onboarding = false
 [keys]
 prefix = "ctrl+e"
-remote_image_paste = "alt+v"
 focus_pane_up = "prefix+u"
 switch_tab = ["prefix+1..9", "alt+1..9"]
 previous_tab = "alt+h"

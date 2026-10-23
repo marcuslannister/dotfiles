@@ -365,7 +365,7 @@ alias ctodc="ct --tap-client codex resume --last --dangerously-bypass-approvals-
 alias pic="pi -c"
 alias pig="pi --model xai/grok-4.7 --thinking high"
 alias pia="pi --model gpt-6-astra --thinking medium"
-alias pis="pi --model gpt-6-sol --thinking medium"
+alias pis="pi --model gpt-6.1-sol --thinking medium"
 alias pil="pi --model gpt-6-luna --thinking max"
 
 # nodejs

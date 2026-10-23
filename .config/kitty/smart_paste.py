@@ -12,6 +12,6 @@ def handle_result(args, answer, target_window_id, boss):
         return
     # Keep image paste aligned with Claude Code, Pi, and Herdr's remote bridge.
     if any(mime.startswith("image/") for mime in boss.clipboard.get_available_mime_types_for_paste()):
-        window.send_key("alt+v")
+        window.send_key("ctrl+v")
     else:
         boss.paste_from_clipboard()

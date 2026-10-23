@@ -24,7 +24,7 @@ for mime_types, image in (
     boss.clipboard.get_available_mime_types_for_paste.return_value = mime_types
     paste([], None, 1, boss)
     if image:
-        window.send_key.assert_called_once_with("alt+v")
+        window.send_key.assert_called_once_with("ctrl+v")
         boss.paste_from_clipboard.assert_not_called()
     else:
         boss.paste_from_clipboard.assert_called_once_with()

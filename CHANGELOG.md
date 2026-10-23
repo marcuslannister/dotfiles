@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Point the `pis` alias at gpt-6.1-sol.
 - Map Kitty `ctrl+v` and `cmd+v` to the new `.config/kitty/smart_paste.py` kitten. It sends `alt+v` (the Claude Code, Pi, and herdr image-paste key) when the clipboard has an image, and pastes text otherwise. Images win when both are present. Checks are in `tests/kitty-smart-paste.py`.
 - Point the `cr` and `crnl` aliases at `vm16.lan:9009` after the relay hostname change.
 - Bind herdr `alt+k` to the previous agent and `alt+j` to the next agent (`previous_agent`, `next_agent`) in `.config/herdr/config.toml`. Needs the terminal to send Option as Alt.

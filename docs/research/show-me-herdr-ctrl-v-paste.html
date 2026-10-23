@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ctrl+V for text and image paste: why the dispatcher stays</title>
+<style>
+  :root {
+    --bg: #fafaf8; --fg: #1d1d1b; --muted: #6b6b66; --card: #ffffff; --line: #e2e2dc;
+    --accent: #2f6fdb; --ok: #1f8a4c; --bad: #c2412d; --warn: #b7791f;
+    --mono: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #161615; --fg: #ececea; --muted: #9a9a94; --card: #1f1f1d; --line: #33332f;
+            --accent: #6b9bff; --ok: #4fc283; --bad: #ff7a63; --warn: #e5b04a; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+         font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  main { max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  h2 { font-size: 1.15rem; margin: 40px 0 12px; }
+  p.lead { color: var(--muted); margin: 0 0 8px; }
+  code { font-family: var(--mono); font-size: .88em; background: color-mix(in srgb, var(--accent) 10%, transparent);
+         padding: 1px 5px; border-radius: 4px; }
+  .answer { border-left: 4px solid var(--accent); background: var(--card); padding: 14px 18px; border-radius: 6px;
+            margin: 20px 0; }
+
+  /* key path */
+  .path { display: flex; align-items: stretch; gap: 0; flex-wrap: wrap; }
+  .stage { flex: 1 1 150px; background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+           padding: 12px 14px; position: relative; min-width: 150px; }
+  .stage h3 { margin: 0 0 4px; font-size: .95rem; }
+  .stage .key { font-family: var(--mono); font-size: .85rem; color: var(--accent); }
+  .stage p { margin: 6px 0 0; font-size: .85rem; color: var(--muted); }
+  .stage.decides { border: 2px solid var(--accent); }
+  .tag { display: inline-block; font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em;
+         padding: 1px 6px; border-radius: 4px; background: var(--accent); color: var(--bg); margin-bottom: 4px; }
+  .arrow { flex: 0 0 28px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 1.2rem; }
+  @media (max-width: 760px) { .path { flex-direction: column; } .arrow { transform: rotate(90deg); height: 28px; } }
+
+  /* branch */
+  .branch { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+  @media (max-width: 760px) { .branch { grid-template-columns: 1fr; } }
+  .lane { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; }
+  .lane h3 { margin: 0 0 8px; font-size: .95rem; }
+  .lane ol { margin: 0; padding-left: 20px; font-size: .9rem; }
+  .lane li { margin: 3px 0; }
+
+  /* table */
+  .tablewrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: .88rem; background: var(--card); border-radius: 10px; overflow: hidden; }
+  th, td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { font-weight: 600; color: var(--muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .03em; }
+  td.c { text-align: center; white-space: nowrap; }
+  .y { color: var(--ok); font-weight: 600; } .n { color: var(--bad); font-weight: 600; } .u { color: var(--warn); font-weight: 600; }
+  tr.rec td { background: color-mix(in srgb, var(--ok) 9%, transparent); }
+  .legend { font-size: .8rem; color: var(--muted); margin-top: 6px; }
+
+  /* facts */
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .fact { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; font-size: .9rem; }
+  .fact h3 { margin: 0 0 6px; font-size: .95rem; }
+  .fact ul { margin: 0; padding-left: 18px; }
+  .src { font-size: .78rem; color: var(--muted); margin-top: 6px; font-family: var(--mono); word-break: break-word; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Ctrl+V for text and image paste</h1>
+  <p class="lead">Can Herdr, Claude Code, or Pi take Ctrl+V directly, so the Alt+V dispatcher is not necessary?</p>
+
+  <div class="answer"><strong>No.</strong> Only the outer terminal (Kitty or Emacs Ghostel) can read the local clipboard and choose <em>text paste</em> or <em>image key</em>. Herdr's paste key works only for images and only in <code>herdr --remote</code>. Keep the dispatcher.</div>
+
+  <h2>1. Where the key goes</h2>
+  <div class="path">
+    <div class="stage">
+      <h3>You press</h3>
+      <div class="key">Ctrl+V</div>
+      <p>Physical key.</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage">
+      <h3>Karabiner</h3>
+      <div class="key">Ctrl+V → Cmd+V</div>
+      <p>Only in Kitty, Emacs, Orca, Muxy, Paseo.</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage decides">
+      <span class="tag">decides</span>
+      <h3>Kitty / Ghostel</h3>
+      <div class="key">smart paste</div>
+      <p>Reads the clipboard MIME types. An image wins.</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage">
+      <h3>Herdr</h3>
+      <div class="key">local: pass through</div>
+      <p>Remote: on Alt+V, sends the local image to the remote host.</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage">
+      <h3>App in pane</h3>
+      <div class="key">Claude Code · Pi · zsh</div>
+      <p>Reads the clipboard of the host where it runs.</p>
+    </div>
+  </div>
+
+  <div class="branch">
+    <div class="lane">
+      <h3>Clipboard has text only</h3>
+      <ol>
+        <li>Dispatcher does a normal paste (<code>paste_from_clipboard</code> / <code>ghostel-yank</code>).</li>
+        <li>Herdr forwards the bracketed paste, local or remote.</li>
+        <li>Any app gets the text.</li>
+      </ol>
+    </div>
+    <div class="lane">
+      <h3>Clipboard has an image</h3>
+      <ol>
+        <li>Dispatcher sends <code>Alt+V</code>.</li>
+        <li><strong>Local:</strong> Herdr forwards Alt+V; Claude Code / Pi read the Mac clipboard.</li>
+        <li><strong>Remote:</strong> Herdr drops Alt+V, copies the image to a remote temp file, and pastes its path.</li>
+        <li>zsh: Alt+V is <code>undefined-key</code>, so nothing happens.</li>
+      </ol>
+    </div>
+  </div>
+
+  <h2>2. Why the other layers cannot decide</h2>
+  <div class="facts">
+    <div class="fact">
+      <h3>Herdr</h3>
+      <ul>
+        <li>One paste key: <code>keys.remote_image_paste</code> (default <code>ctrl+v</code>, yours <code>alt+v</code>).</li>
+        <li>Remote only. Image only. With no image, it sends the raw key. It never pastes text.</li>
+      </ul>
+      <div class="src">herdr v0.9.5 src/client/clipboard_images.rs#L71-L73, src/client/mod.rs#L990-L1007</div>
+    </div>
+    <div class="fact">
+      <h3>Claude Code &amp; Pi</h3>
+      <ul>
+        <li>Both default to Ctrl+V for images on macOS.</li>
+        <li>Pi falls back to text. Claude Code: no text fallback is documented (not confirmed).</li>
+        <li>Remote: they cannot see the Mac clipboard.</li>
+      </ul>
+      <div class="src">code.claude.com/docs/en/keybindings · pi interactive-mode.js:2436-2491</div>
+    </div>
+    <div class="fact">
+      <h3>Kitty plain paste</h3>
+      <ul>
+        <li>Sends text only. An image-only clipboard sends nothing.</li>
+        <li>So Herdr's empty-paste trigger cannot fire.</li>
+      </ul>
+      <div class="src">kitty v0.49.2 kitty/boss.py#L3001-L3008</div>
+    </div>
+    <div class="fact">
+      <h3>Karabiner</h3>
+      <ul>
+        <li>If you remove Kitty and Emacs from the rule, Ctrl+V reaches the terminal, but someone must still choose text or image.</li>
+        <li>In Emacs outside Ghostel, <code>C-v</code> scrolls instead of paste.</li>
+      </ul>
+      <div class="src">.config/karabiner/karabiner.json:202-231</div>
+    </div>
+  </div>
+
+  <h2>3. Options</h2>
+  <div class="tablewrap">
+  <table>
+    <thead>
+      <tr><th>Option</th><th>Text local</th><th>Image local</th><th>Text remote</th><th>Image remote</th><th>Problem</th></tr>
+    </thead>
+    <tbody>
+      <tr class="rec"><td><strong>A. Current</strong>: dispatcher sends Alt+V</td>
+        <td class="c y">yes</td><td class="c y">yes</td><td class="c y">yes</td><td class="c y">yes</td>
+        <td>Three Alt+V bindings to keep in sync. Kitty is tested; Emacs is not tested yet.</td></tr>
+      <tr><td><strong>B.</strong> Dispatcher sends Ctrl+V; apps use their defaults</td>
+        <td class="c y">yes</td><td class="c u">likely</td><td class="c y">yes</td><td class="c u">likely</td>
+        <td>Same code size. A shell pane gets Ctrl+V (quoted-insert). Not tested.</td></tr>
+      <tr><td><strong>C.</strong> Only change Herdr to Ctrl+V</td>
+        <td class="c n">no</td><td class="c u">partly</td><td class="c n">no</td><td class="c u">partly</td>
+        <td>No text paste on Ctrl+V.</td></tr>
+      <tr><td><strong>D.</strong> Karabiner exclusion + raw Ctrl+V</td>
+        <td class="c n">no</td><td class="c y">yes</td><td class="c n">no</td><td class="c y">yes</td>
+        <td>No text paste. Emacs <code>C-v</code> scrolls.</td></tr>
+      <tr><td><strong>E.</strong> Herdr empty-paste / file-path trigger</td>
+        <td class="c y">yes</td><td class="c n">no</td><td class="c y">yes</td><td class="c n">no</td>
+        <td>Kitty sends nothing; Ghostel trailing space probably blocks the path match.</td></tr>
+      <tr><td><strong>F.</strong> Local sessions via <code>herdr --remote localhost</code></td>
+        <td class="c y">yes</td><td class="c u">reported</td><td class="c y">yes</td><td class="c y">yes</td>
+        <td>Not supported. SSH for every session. Still needs the dispatcher.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="legend"><span class="y">yes</span> confirmed by source or test · <span class="u">likely / partly / reported</span> not confirmed · <span class="n">no</span> fails the goal</p>
+
+  <h2>4. Not confirmed</h2>
+  <div class="fact">
+    <ul>
+      <li>Claude Code <code>chat:imagePaste</code> with a text-only clipboard.</li>
+      <li>Option B and option F in practice.</li>
+      <li>Karabiner key results (worked out from the config and docs, not watched in EventViewer).</li>
+      <li>Live Ctrl+V test in the Emacs <code>*herdr*</code> buffer.</li>
+    </ul>
+    <div class="src">Full notes: docs/research/herdr-ctrl-v-paste.md</div>
+  </div>
+</main>
+</body>
+</html>

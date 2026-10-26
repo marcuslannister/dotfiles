@@ -46,11 +46,6 @@ args = ["@playwright/mcp@latest"]
 command = "uvx"
 args = ["mcp-server-time", "--local-timezone=Asia/Shanghai"]
 
-[mcp_servers.mcp-shrimp-task-manager]
-command = "npx"
-args = ["-y", "mcp-shrimp-task-manager"]
-env = { DATA_DIR = "~/tools/mcp-shrimp-task-manager/data", TEMPLATES_USE = "zh", ENABLE_GUI = "false" }
-
 [mcp_servers.mcp-deepwiki]
 command = "npx"
 args = ["-y", "mcp-deepwiki@latest"]

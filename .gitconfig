@@ -5,6 +5,8 @@
     helper = cache --timeout=3600
 [core]
     pager = delta
+    # Privacy guard for every repo (agent-scripts ADR-0011).
+    hooksPath = ~/Projects/agent-scripts/hooks
 [merge]
     tool = vimdiff
 [diff]

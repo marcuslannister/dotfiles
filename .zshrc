@@ -168,14 +168,14 @@ fi
 # npm global prefix moved to .zshenv so non-interactive shells get it too.
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:~/.cache/lm-studio/bin"
+export PATH="$PATH:$HOME/.cache/lm-studio/bin"
 # End of LM Studio CLI section
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:~/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 
-export PATH="$PATH:~/.cargo/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"

@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Remove stale `.lan` names from `etc/hosts` (`ros.lan`, `mbp-pve.lan`, `pve-vm16.lan`, `mbp.lan`, `daed.lan`, `one.lan`, `sui.lan`); the rest match the router DNS.
 - Remove herdr `remote_image_paste = "alt+v"` from `.config/herdr/config.toml`, so the remote image bridge uses the default `ctrl+v`, like Claude Code and Pi.
 - Point the `pis` alias at gpt-6.1-sol.
 - Map Kitty `ctrl+v` and `cmd+v` to the new `.config/kitty/smart_paste.py` kitten. It sends `ctrl+v` (the default Claude Code, Pi, and herdr image-paste key) when the clipboard has an image, and pastes text otherwise. Images win when both are present. Checks are in `tests/kitty-smart-paste.py`.

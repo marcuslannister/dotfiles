@@ -125,6 +125,11 @@ bindkey '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
+# alt+n: normal mode, then one char right (herdr takes alt+l)
+_vi_cmd_forward_char() { zle vi-cmd-mode; zle vi-forward-char }
+zle -N _vi_cmd_forward_char
+bindkey -M viins '^[n' _vi_cmd_forward_char
+
 #
 # User configuration sourced by interactive shells
 #

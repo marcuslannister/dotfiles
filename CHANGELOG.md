@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Bind zsh `alt+n` in vi insert mode to go to normal mode and move one character right, in `.zshrc`. This replaces the `alt+l` (ESC, `l`) sequence, which herdr now takes for `next_tab`.
 - Remove stale `.lan` names from `etc/hosts` (`ros.lan`, `mbp-pve.lan`, `pve-vm16.lan`, `mbp.lan`, `daed.lan`, `one.lan`, `sui.lan`); the rest match the router DNS.
 - Remove herdr `remote_image_paste = "alt+v"` from `.config/herdr/config.toml`, so the remote image bridge uses the default `ctrl+v`, like Claude Code and Pi.
 - Point the `pis` alias at gpt-6.1-sol.

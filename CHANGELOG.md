@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Set Kitty ANSI white `color7` to `#a6a6a6` and bright white `color15` to `#ffffff`, the Modus `fg-term-white` values, so text on ANSI white (such as the PowerShell update notice over SSH) is no longer a black block.
 - Bind herdr `prefix+p` to the plugin manager (`ray.plugin-manager.open`) in `.config/herdr/config.toml`. Install it first with `herdr plugin install speardragon/herdr-plugin-manager`.
 - Bind zsh `alt+n` in vi insert mode to go to normal mode and move one character right, in `.zshrc`. This replaces the `alt+l` (ESC, `l`) sequence, which herdr now takes for `next_tab`.
 - Remove stale `.lan` names from `etc/hosts` (`ros.lan`, `mbp-pve.lan`, `pve-vm16.lan`, `mbp.lan`, `daed.lan`, `one.lan`, `sui.lan`); the rest match the router DNS.

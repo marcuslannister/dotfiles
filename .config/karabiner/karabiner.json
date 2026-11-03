@@ -380,6 +380,40 @@
                         ]
                     },
                     {
+                        "description": "M13 (Ctrl+Alt+H) to Cmd+Option+H (Hide Others) in the apps that swap command and control",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.stablyai\\.orca$",
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com.microsoft.rdc.macos$",
+                                            "^io\\.appmakes\\.otty$",
+                                            "^com\\.github\\.tty7$",
+                                            "^com\\.muxy\\.app$",
+                                            "^sh\\.paseo\\.desktop$",
+                                            "^org\\.gnu\\.Emacs$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": { "mandatory": ["left_control", "left_option"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "h",
+                                        "modifiers": ["left_command", "left_option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Press a Key Twice, left_command - Rule - Karabiner-Elements",
                         "manipulators": [
                             {

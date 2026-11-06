@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Set up herdr for the Auto Title plugin (`kryptamine/herdr-auto-title`) in `.config/herdr/config.toml`: turn off the new-tab name prompt (`prompt_new_tab_name = false`), so Auto Title can name new tabs, and add a sidebar row that shows each workspace's `$topic` in bold under its name and branch.
 - Map Karabiner M13 (`ctrl+option+h`) to `cmd+option+h` (Hide Others) in the apps that swap Command and Control, in `.config/karabiner/karabiner.json`.
 - Set Kitty ANSI white `color7` to `#a6a6a6` and bright white `color15` to `#ffffff`, the Modus `fg-term-white` values, so text on ANSI white (such as the PowerShell update notice over SSH) is no longer a black block.
 - Bind herdr `prefix+p` to the plugin manager (`ray.plugin-manager.open`) in `.config/herdr/config.toml`. Install it first with `herdr plugin install speardragon/herdr-plugin-manager`.

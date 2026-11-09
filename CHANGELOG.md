@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Refresh the BetterTouchTool preset snapshot (`.config/bettertouchtool/Default.bttpreset`) from the live Main preset: turn off the Trackpad `1 Finger Tap` and `2 Finger Tap` → `Right Click` triggers, because macOS tap to click and secondary click now do these taps and BTT's trigger sent a second right click that closed the menu at once, and add the `4 Finger Tap` and Hyper+P `Pin or Unpin Window Float On Top` triggers.
 - Trust the `fif7y/tap/dimble` cask in `.homebrew/trust.json`.
 - Add the herdr-bar plugin config in `.config/herdr/plugins/config/herdr-bar/config.json`, with `auto_titles` and `tab_status` off, so the Auto Title plugin alone names tabs.
 - Set up herdr for the Auto Title plugin (`kryptamine/herdr-auto-title`) in `.config/herdr/config.toml`: turn off the new-tab name prompt (`prompt_new_tab_name = false`), so Auto Title can name new tabs, and add a sidebar row that shows each workspace's `$topic` in bold under its name and branch.

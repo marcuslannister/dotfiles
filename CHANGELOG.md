@@ -23,7 +23,7 @@
 - Bind herdr `prefix+t` to `herdr-tsk.open-board` and `prefix+a` to `herdr-tsk.quick-capture` (tsk plugin actions).
 - Bind herdr `prefix+k` to the `herdr-bar.open` plugin action (command bar) in `.config/herdr/config.toml`.
 - Trust the `darrylmorley/whatcable/whatcable-cli` formula.
-- Add a BetterTouchTool Trackpad `2 Finger Tap` → `Right Click` trigger to the preset; macOS two-finger tap needs Tap to click, which is off.
+- Add a BetterTouchTool Trackpad `2 Finger Tap` → `Right Click` trigger to the preset; macOS two-finger tap needs Tap to click, which is off. Superseded: Tap to click is now on, so this trigger is off (see the BTT snapshot entry at the top).
 - Add `local/bin/btt-export`, which writes the live BetterTouchTool preset (default name `Main`) to `.config/bettertouchtool/Default.bttpreset`. BTT Sync keeps the Macs in step; the file is the git snapshot. It waits for BTT to finish writing and keeps the file's preset UUID, so an export with no changes leaves git clean. Restore the Hyper+9 (Move Window to Next Monitor), Meh+9 (Next), and Meh+8 (Play or Pause) shortcuts in the preset.
 - Select Orca tabs by index with Command+Option+1–9 instead of Command+1–9 in `.orca/keybindings.json`, matching the live Orca config.
 - Track the BetterTouchTool Default preset in `.config/bettertouchtool/Default.bttpreset` (import it in BTT; it is not applied on rebuild). It adds Trackpad `1 Finger Tap` → `Left Click (At Current Mouse Position)`, so double-tap, hold, and drag selects text by character. It needs macOS Tap to click and Use trackpad for dragging turned off.

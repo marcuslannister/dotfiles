@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Set the `ccsd` alias effort to `xhigh` (`--model sonnet --effort xhigh`).
 - Refresh the BetterTouchTool preset snapshot (`.config/bettertouchtool/Default.bttpreset`) from the live Main preset: turn off the Trackpad `1 Finger Tap` and `2 Finger Tap` → `Right Click` triggers, because macOS tap to click and secondary click now do these taps and BTT's trigger sent a second right click that closed the menu at once, and add the `4 Finger Tap` and Hyper+P `Pin or Unpin Window Float On Top` triggers.
 - Trust the `fif7y/tap/dimble` cask in `.homebrew/trust.json`.
 - Add the herdr-bar plugin config in `.config/herdr/plugins/config/herdr-bar/config.json`, with `auto_titles` and `tab_status` off, so the Auto Title plugin alone names tabs.
@@ -29,7 +30,7 @@
 - Track the BetterTouchTool Default preset in `.config/bettertouchtool/Default.bttpreset` (import it in BTT; it is not applied on rebuild). It adds Trackpad `1 Finger Tap` → `Left Click (At Current Mouse Position)`, so double-tap, hold, and drag selects text by character. It needs macOS Tap to click and Use trackpad for dragging turned off.
 - Apply the Karabiner left Command/Control swap and the Control+V paste mapping to Paseo, as in kitty and Orca.
 - Turn `CLOBBER` back on in `.zshrc.personal`, so `>` overwrites a file again. Zim's `environment` module sets `NO_CLOBBER`.
-- Add a `ccsd` alias for `ccd` with the Sonnet model and high effort (`--model sonnet --effort high`).
+- Add a `ccsd` alias for `ccd` with the Sonnet model and high effort (`--model sonnet --effort high`). Superseded: the effort is now `xhigh` (see the entry at the top).
 - Add a `crnl` alias that sends with croc through the configured relay and `--no-local`, so the transfer does not also open a local relay.
 - Add `.cargo/config.toml`, which makes Cargo link and compile C/C++ with Apple clang on macOS. The `gcc15` from nix-config puts its own `cc` before `/usr/bin` on PATH, and that `cc` cannot link against the macOS SDK (`ld: library not found for -liconv`).
 - Add Control alternatives to 41 Orca Command shortcuts in `.orca/keybindings.json`, so physical Control works as Command outside the terminal. Skip plain Control chords for global and tab shortcuts (W, R, E, B, P, N, L, T, J, and zoom), so the shell keeps them.

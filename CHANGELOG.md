@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Point the `em` alias at `$EMACS -nw`, a standalone terminal Emacs, instead of an `emacsclient -t` frame in Emacs.app.
+- Make `git-ediff-tui` (`git difftool`, `gdty`) always run `emacs -nw` and exit when ediff quits, with no "Kill buffer?" prompts. It no longer opens an `emacsclient -t` frame in Emacs.app, and it drops the stale `/tmp/emacs$(id -u)/server` socket pin.
 - Set the `ccsd` alias effort to `xhigh` (`--model sonnet --effort xhigh`).
 - Refresh the BetterTouchTool preset snapshot (`.config/bettertouchtool/Default.bttpreset`) from the live Main preset: turn off the Trackpad `1 Finger Tap` and `2 Finger Tap` → `Right Click` triggers, because macOS tap to click and secondary click now do these taps and BTT's trigger sent a second right click that closed the menu at once, and add the `4 Finger Tap` and Hyper+P `Pin or Unpin Window Float On Top` triggers.
 - Trust the `fif7y/tap/dimble` cask in `.homebrew/trust.json`.

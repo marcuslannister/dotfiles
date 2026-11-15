@@ -329,7 +329,7 @@ ze-nuke() {
 # emacs
 # Start Emacs.app from the Dock or Raycast, so its server socket is in $TMPDIR.
 alias emg="$EMACSC -n"
-alias em="$EMACSC -t"
+alias em="$EMACS -nw"
 
 # Coding Agent
 alias cc="claude"

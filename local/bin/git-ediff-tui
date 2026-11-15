@@ -1,27 +1,16 @@
 #!/bin/sh
-# Prefer a live Emacs server (tty client frame). Fall back to emacs -nw.
-# Never kill-emacs on the server.
+# Ediff two files in a standalone terminal Emacs (emacs -nw), apart from Emacs.app.
+# Quitting ediff exits this Emacs.
 
 el=$(printf '%s' "$1" | sed 's/\\/\\\\/g; s/"/\\"/g')
 er=$(printf '%s' "$2" | sed 's/\\/\\\\/g; s/"/\\"/g')
 
 form="(progn
   (setq ediff-window-setup-function 'ediff-setup-windows-plain
-        ediff-split-window-function 'split-window-horizontally)
-  (defun git-ediff-tui--on-quit ()
-    (remove-hook 'ediff-quit-hook #'git-ediff-tui--on-quit)
-    (when (frame-parameter nil 'git-ediff-tui)
-      (if (frame-parameter nil 'client)
-          (delete-frame nil t)
-        (kill-emacs))))
-  (set-frame-parameter nil 'git-ediff-tui t)
-  (add-hook 'ediff-quit-hook #'git-ediff-tui--on-quit)
+        ediff-split-window-function 'split-window-horizontally
+        ;; This Emacs exits on quit, so do not ask to kill the two buffers.
+        ediff-keep-variants t)
+  (add-hook 'ediff-quit-hook #'kill-emacs 90)
   (ediff-files \"$el\" \"$er\"))"
 
-sock=/tmp/emacs$(id -u)/server
-[ -S "$sock" ] && export EMACS_SOCKET_NAME=$sock
-if emacsclient -n -e t >/dev/null 2>&1; then
-  exec emacsclient -t --eval "$form"
-else
-  exec emacs -nw --eval "$form"
-fi
+exec emacs -nw --eval "$form"

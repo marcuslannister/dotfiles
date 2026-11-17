@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Trust the cask `chen08209/tap/flclash` (FlClash) in `.homebrew/trust.json`, for nix-config's macbook-pro-m1 cask list.
 - Show herdr toasts in herdr itself (`[ui.toast] delivery = "herdr"`), not through the terminal, in `.config/herdr/config.toml`.
 - Add an empty Harper user dictionary, `.config/harper-ls/dictionary.txt`. nix-config links it to `~/.config/harper-ls/dictionary.txt`, so words added in Emacs are kept here.
 - Point the `em` alias at `$EMACS -nw`, a standalone terminal Emacs, instead of an `emacsclient -t` frame in Emacs.app.

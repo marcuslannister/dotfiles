@@ -27,6 +27,7 @@
   "trustedcasks": [
     "abue-ammar/tinycast/tinycast",
     "barrybarrywu/tap/tutti",
+    "chen08209/tap/flclash",
     "crmne/tap/spotifast",
     "eryouhao/tap/graker",
     "fif7y/tap/dimble",

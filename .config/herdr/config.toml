@@ -17,7 +17,7 @@ name = "catppuccin-latte"
 auto_switch = false
 
 [ui.toast]
-delivery = "terminal"
+delivery = "herdr"
 
 [ui]
 show_agent_labels_on_pane_borders = true

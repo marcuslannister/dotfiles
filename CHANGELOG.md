@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add the LM Studio CLI folder (`~/.cache/lm-studio/bin`, for `lms`) to `PATH` in `.zshenv`, so non-interactive shells find it too. The `lms` installer had appended it to `.zshrc` with a home path.
 - Trust the cask `chen08209/tap/flclash` (FlClash) in `.homebrew/trust.json`, for nix-config's macbook-pro-m1 cask list.
 - Show herdr toasts in herdr itself (`[ui.toast] delivery = "herdr"`), not through the terminal, in `.config/herdr/config.toml`.
 - Add an empty Harper user dictionary, `.config/harper-ls/dictionary.txt`. nix-config links it to `~/.config/harper-ls/dictionary.txt`, so words added in Emacs are kept here.

@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add an empty Harper user dictionary, `.config/harper-ls/dictionary.txt`. nix-config links it to `~/.config/harper-ls/dictionary.txt`, so words added in Emacs are kept here.
 - Point the `em` alias at `$EMACS -nw`, a standalone terminal Emacs, instead of an `emacsclient -t` frame in Emacs.app.
 - Make `git-ediff-tui` (`git difftool`, `gdty`) always run `emacs -nw` and exit when ediff quits, with no "Kill buffer?" prompts. It no longer opens an `emacsclient -t` frame in Emacs.app, and it drops the stale `/tmp/emacs$(id -u)/server` socket pin.
 - Set the `ccsd` alias effort to `xhigh` (`--model sonnet --effort xhigh`).

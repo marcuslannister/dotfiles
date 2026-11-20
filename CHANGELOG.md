@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Move the Codex and Pi aliases to the gpt-6.2 models in `.zshrc.personal`. `co`, `oco`, `ctod`, and `ctodc` pass `-m gpt-6.2-sol` (so `cod`, `codc`, `ood`, and `oodc` do too), `pia` uses gpt-6.2-astra, and `pis` uses gpt-6.2-sol. Add `cold` (gpt-6-luna, `model_reasoning_effort="max"`) and `coad` (gpt-6.2-astra), both with `--dangerously-bypass-approvals-and-sandbox`. Supersedes the `pis` entry below.
 - Add the LM Studio CLI folder (`~/.cache/lm-studio/bin`, for `lms`) to `PATH` in `.zshenv`, so non-interactive shells find it too. The `lms` installer had appended it to `.zshrc` with a home path.
 - Trust the cask `chen08209/tap/flclash` (FlClash) in `.homebrew/trust.json`, for nix-config's macbook-pro-m1 cask list.
 - Show herdr toasts in herdr itself (`[ui.toast] delivery = "herdr"`), not through the terminal, in `.config/herdr/config.toml`.

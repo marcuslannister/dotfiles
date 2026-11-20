@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Turn off the claude.ai connectors (Claude Docs) by default in `.zshrc` with `ENABLE_CLAUDEAI_MCP_SERVERS=false`, because their MCP instructions load in every session. The `claude()` wrapper takes `--docs` to turn them on for one session; `c`, `cs`, `cc`, and `ccd` go through the wrapper, so `ccd --docs` works too.
 - Remove the `tsk` tap and formula trust (`smarzban/tap`, `smarzban/tap/tsk`) from `.homebrew/trust.json`, and the herdr keys `prefix+t` and `prefix+a` (the `herdr-tsk` plugin actions) from `.config/herdr/config.toml`, because nix-config no longer installs `tsk`.
 - Move the Codex and Pi aliases to the gpt-6.2 models in `.zshrc.personal`. `co`, `oco`, `ctod`, and `ctodc` pass `-m gpt-6.2-sol` (so `cod`, `codc`, `ood`, and `oodc` do too), `pia` uses gpt-6.2-astra, and `pis` uses gpt-6.2-sol. Add `cold` (gpt-6-luna, `model_reasoning_effort="max"`) and `coad` (gpt-6.2-astra), both with `--dangerously-bypass-approvals-and-sandbox`. Supersedes the `pis` entry below.
 - Add the LM Studio CLI folder (`~/.cache/lm-studio/bin`, for `lms`) to `PATH` in `.zshenv`, so non-interactive shells find it too. The `lms` installer had appended it to `.zshrc` with a home path.

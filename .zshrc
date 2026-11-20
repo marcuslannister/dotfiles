@@ -191,11 +191,21 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # >>> claude-env >>>
 alias c='claude'
 alias cs='claude --dangerously-skip-permissions'
+# claude.ai connectors (Claude Docs) load long MCP instructions; off unless --docs.
+export ENABLE_CLAUDEAI_MCP_SERVERS=false
 claude() {
-  local args=()
+  local args=() docs=
   for arg in "$@"; do
-    if [[ "$arg" == "--fs" ]]; then args+=("--fork-session"); else args+=("$arg"); fi
+    case "$arg" in
+      --fs) args+=("--fork-session") ;;
+      --docs) docs=1 ;;
+      *) args+=("$arg") ;;
+    esac
   done
-  command claude "${args[@]}"
+  if [[ -n $docs ]]; then
+    ENABLE_CLAUDEAI_MCP_SERVERS=true command claude "${args[@]}"
+  else
+    command claude "${args[@]}"
+  fi
 }
 # <<< claude-env <<<

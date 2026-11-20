@@ -38,16 +38,6 @@ command = "herdr-bar.open"
 description = "command bar"
 
 [[keys.command]]
-key = "prefix+t"
-type = "plugin_action"
-command = "herdr-tsk.open-board"
-
-[[keys.command]]
-key = "prefix+a"
-type = "plugin_action"
-command = "herdr-tsk.quick-capture"
-
-[[keys.command]]
 key = "prefix+p"
 type = "plugin_action"
 command = "ray.plugin-manager.open"

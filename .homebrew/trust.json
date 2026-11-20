@@ -17,7 +17,6 @@
     "nowledge-co/tap",
     "pouriyajamshidi/tap",
     "scouzi1966/afm",
-    "smarzban/tap",
     "stablyai/orca",
     "steipete/tap",
     "supercmdlabs/supercmd",
@@ -42,7 +41,6 @@
     "kris-anderson/netperf/netperf-enable-demo",
     "lance0/tap/ttl",
     "pouriyajamshidi/tap/tcping",
-    "smarzban/tap/tsk",
     "steipete/tap/peekaboo"
   ]
 }

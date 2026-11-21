@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add a `zh` alias in `.config/zsh/.zshrc.personal` that does `cd ~/Projects/home`.
 - `AGENTS.md`: the apply step runs `sudo darwin-rebuild switch --flake . --impure`. Without `--impure`, nix-config cannot read the account name and the rebuild fails with `users.users."".name`.
 - Turn off the claude.ai connectors (Claude Docs) by default in `.zshrc` with `ENABLE_CLAUDEAI_MCP_SERVERS=false`, because their MCP instructions load in every session. The `claude()` wrapper takes `--docs` to turn them on for one session; `c`, `cs`, `cc`, and `ccd` go through the wrapper, so `ccd --docs` works too.
 - Remove the `tsk` tap and formula trust (`smarzban/tap`, `smarzban/tap/tsk`) from `.homebrew/trust.json`, and the herdr keys `prefix+t` and `prefix+a` (the `herdr-tsk` plugin actions) from `.config/herdr/config.toml`, because nix-config no longer installs `tsk`.

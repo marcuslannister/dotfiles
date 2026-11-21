@@ -33,6 +33,7 @@ alias svi='sudo vim'
 alias nv='nvim'
 alias nvd='nvim -d'
 alias nvi='neovide'
+alias zh='cd ~/Projects/home'
 
 # for zsh setting
 alias zcz='zcompile ~/.zshrc;zcompile ~/.zshenv;zcompile ~/.zlogin; \
